@@ -8,8 +8,8 @@ This browser based web application to ...
 List team members and/or short bio's here... 
 
 * My name is Toby! I love to code!
-* Hi, my namet this journey of creating a web application!
-* Hi, m is my favorite train.
+* Hi, my name is Jimmy and I'm excited about this journey of creating a web application!
+* Hi, my name is Leo and my favorite train is Thomas.
 
 	
 ## 3. Technologies and Resources Used
