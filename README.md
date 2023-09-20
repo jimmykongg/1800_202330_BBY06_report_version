@@ -7,13 +7,9 @@ This browser based web application to ...
 ## 2. Names of Contributors
 List team members and/or short bio's here... 
 
-
-* Hi, my name is 
-* Hi, my name 
-* Hi, my name is Jimmy! I am excited to start this journey of creating a web application!
-=======
-
-
+* My name is Toby! I love to code!
+* Hi, my namet this journey of creating a web application!
+* Hi, m is my favorite train.
 
 	
 ## 3. Technologies and Resources Used
