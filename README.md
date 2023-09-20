@@ -11,7 +11,6 @@ List team members and/or short bio's here...
 * Hi, my namet this journey of creating a web application!
 * Hi, m is my favorite train.
 
-	
 ## 3. Technologies and Resources Used
 List technologies (with version numbers), API's, icons, fonts, images, media or data sources, and other resources that were used.
 * HTML, CSS, JavaScript
