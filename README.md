@@ -9,7 +9,7 @@ List team members and/or short bio's here...
 
 * Hi, my name is 
 * Hi, my name is Jimmy! I am excited to start this journey of creating a web application!
-* Hi, my name is Toby! 
+* Hi, my nam 
 
 	
 ## 3. Technologies and Resources Used
