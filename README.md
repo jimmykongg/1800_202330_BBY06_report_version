@@ -6,9 +6,11 @@ This browser based web application to ...
 
 ## 2. Names of Contributors
 List team members and/or short bio's here... 
-* ...
-* ...
-* Hi, my name is Toby
+
+* Hi, my name is Leo! I like trains!
+* Hi, my name is Jimmy! I am excited to start this journey of creating a web application!
+* Hi, my name is Toby! 
+
 	
 ## 3. Technologies and Resources Used
 List technologies (with version numbers), API's, icons, fonts, images, media or data sources, and other resources that were used.
