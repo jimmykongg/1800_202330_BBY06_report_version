@@ -12,3 +12,30 @@
   text-decoration: none;
   color: #828358
 }
+
+h1.display-4.fw-bold{
+  color: #BCD39C;
+}
+
+p.lead.mb-4{
+  color:#8E8358;
+}
+
+button.btn {
+  background-color: #13b076;
+  border: none;
+  color: white;
+  padding: 10px 24px;
+  text-decoration: none;ss
+  margin: 3px 2px;
+  cursor: pointer;
+  transition-duration: 1s;
+  
+}
+
+button.btn:hover{
+  background-color: #a6fadb;
+  
+}
+
+ 
