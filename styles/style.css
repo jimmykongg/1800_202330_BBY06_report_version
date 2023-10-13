@@ -2,16 +2,20 @@
  * Footer Navbar Custom CSS (Jimmy)
  */
 #navbar {
-  height: 6.5%;
-  font-size: 0.6em;
-  padding-top: 0.5em;
-  background-color: #EAFDCF
+  height: 40px;
+  font-size: 0.5em;
+  font-weight: bold;
+  background-color: #EAFDCF;
+  padding-top: 0.1em;
 }
 
 #navbar a {
   text-decoration: none;
-  justify-items: center;
-  color: #828358
+  color: #828358;
+}
+
+#navbar a:hover {
+  color: black;
 }
 
 h1.display-4.fw-bold{
