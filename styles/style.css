@@ -4,12 +4,13 @@
 #navbar {
   height: 6.5%;
   font-size: 0.6em;
-  padding-top: 0.1em;
+  padding-top: 0.5em;
   background-color: #EAFDCF
 }
 
 #navbar a {
   text-decoration: none;
+  justify-items: center;
   color: #828358
 }
 
@@ -26,7 +27,7 @@ button.btn {
   border: none;
   color: white;
   padding: 10px 24px;
-  text-decoration: none;ss
+  text-decoration: none;
   margin: 3px 2px;
   cursor: pointer;
   transition-duration: 1s;

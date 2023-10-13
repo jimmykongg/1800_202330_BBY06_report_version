@@ -1,0 +1,48 @@
+[33mcommit 496133a1c4a16789331d91a8b5cef124438a374f[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Merge: 403715d b59305c
+Author: [1;31mLeo[m Zheng <leozheng0901@gmail.com>
+Date:   Wed Sep 20 09:47:49 2023 -0700
+
+    Merge branch 'main' of https://github.com/leozheng0901/1800_202330_BBY06
+
+[33mcommit 403715d515406dbae215755bc48619f8218a678e[m
+Author: [1;31mLeo[m Zheng <leozheng0901@gmail.com>
+Date:   Wed Sep 20 09:44:58 2023 -0700
+
+    Updating type of trains LEO in README
+
+[33mcommit 34416c6c6c5f92b12a18d35e80b357ea46c4690a[m
+Author: [1;31mLeo[m Zheng <leozheng0901@gmail.com>
+Date:   Wed Sep 20 09:35:02 2023 -0700
+
+    testing
+
+[33mcommit 27ce47e8f21dcc07e47b6138d79bf9b06cd280d3[m
+Author: [1;31mLeo[m Zheng <leozheng0901@gmail.com>
+Date:   Wed Sep 20 09:29:46 2023 -0700
+
+    Testing
+
+[33mcommit 746e23ee2189fecf8d6dea150cf83d152ef38e44[m
+Author: [1;31mLeo[m Zheng <leozheng0901@gmail.com>
+Date:   Wed Sep 20 09:24:22 2023 -0700
+
+    Switching Toby and Leo's lines in README
+
+[33mcommit ab99fb93912d6e600a3ed1f45e301c32a740a0a2[m
+Author: [1;31mLeo[m Zheng <leozheng0901@gmail.com>
+Date:   Wed Sep 20 09:20:43 2023 -0700
+
+    adding back Leo introduction line in README
+
+[33mcommit 38c5a3946f286e0efc58fa6d4a8ce2aee2c067f9[m
+Author: [1;31mLeo[m Zheng <leozheng0901@gmail.com>
+Date:   Wed Sep 20 08:58:12 2023 -0700
+
+    added Leo introduction line in README file
+
+[33mcommit 288b429d5819529b1dbc3863de6aa0db97797d02[m
+Author: [1;31mLeo[m Zheng <100188356+leozheng0901@users.noreply.github.com>
+Date:   Wed Sep 20 08:35:27 2023 -0700
+
+    Initial commit
