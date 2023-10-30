@@ -1,12 +1,30 @@
 /*
  * Footer Navbar Custom CSS (Jimmy)
  */
+
+div > .locate {
+  padding: 0;
+  float: right;
+  margin-top: 65vh;
+  margin-right: 7vw;
+}
+
+a {
+  text-decoration: none;
+  color: #828358;
+ }
+
+a:hover {
+  color: black;
+
+}
+
 #navbar {
-  height: 45px;
+  height: 10vh;
   font-size: 0.5em;
   font-weight: bold;
   background-color: #EAFDCF;
-  padding-top: 0.6em;
+  padding-top: 1em;
 }
 
 #navbar a {
@@ -16,6 +34,25 @@
 
 #navbar a:hover {
   color: black;
+}
+
+#heading {
+  font-weight: bold;
+  font-size: 20pt;
+}
+
+#description {
+  display: block;
+  font-size: 10pt;
+  color: gray;
+  font-weight: none;
+  margin-left: 7vw;
+  padding-bottom: 2vh;
+}
+
+#content {
+  height: 90vh;
+  width: 100vw;
 }
 
 h1.display-4.fw-bold{
@@ -43,4 +80,155 @@ button.btn:hover{
   
 }
 
- 
+.material-icons.md-60 { 
+  font-size: 40px; 
+}
+
+.icon-text {
+  padding-top: 0;
+  text-align: center;
+  font-size: 10pt;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24;
+  font-size: 40pt;
+}
+
+.material-symbols-outlined.filled {
+  font-variation-settings: 
+  'FILL' 1;
+}
+
+.material-symbols-outlined.search-bar {
+  font-size: 15pt;
+  /* font-family: Arial, Helvetica, sans-serif; */
+}
+
+.material-symbols-outlined.favorite {
+  position: absolute;
+  top: 10%;
+  right: 6%;
+  font-variation-settings: 
+  'FILL' 0;
+  font-size: 30pt;
+}
+
+.material-symbols-outlined.recycle-items {
+  position:absolute;
+  top: 7%;
+  left: 5%;
+  font-size: 20pt;
+}
+
+.material-symbols-outlined.navigate {
+  font-size: 25pt;
+  position:absolute;
+  top: 7%;
+  right: 5%;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search {
+  display: flex;
+  justify-content: center;
+}
+
+.search input[type=text] {
+  border: 1px solid #ccc;  
+  background-color: rgba(162, 162, 162, 0.2);
+  border-radius: 15px;
+  width: 65vw;
+}
+
+.search-title {
+  margin-left: 10vw;
+}
+
+.location-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+}
+
+.location {
+  position: relative;
+  margin-top: 4vh;
+  width: 85vw;
+  height: 20vh;
+  background-color: rgb(160, 160, 160);
+  border-radius: 20px;
+  box-shadow: 3px 5px rgba(162, 162, 162, 0.2);
+}
+
+.location > .types {
+  display: block;
+  position: absolute;
+  top: 5%;
+  left: 3%;
+  background-color: black;
+  border-radius: 10px;
+  color: white;
+  font-size: 8pt;
+  font-weight: bold;
+  text-align: center;
+  width: 10vw;
+}
+
+.location > img {
+  position:absolute;
+  top: 20%;
+  left: 3%;
+  width: 10vw;
+  height: 5vh;
+  border-radius: 20px;
+  overflow: hidden;
+  object-fit: fill;
+}
+
+.location > #title {
+  position: absolute;
+  top: 20%;
+  left: 18%;
+  font-size: 10pt;
+  width: 30vw;
+  color: black;
+  box-shadow: none;
+  background-color: transparent;
+  font-weight: normal;
+  text-align: left;
+}
+
+.location.info {
+  position: absolute;
+  bottom:0;
+  height: 50%;
+  border-radius: 0 0 20px 20px;
+  background-color: white;
+  box-shadow: none;
+}
+
+.location.info > .description {
+  font-size: 13pt;
+  position: absolute;
+  top: 6%;
+  left: 15%;
+}
+
+.location.info > .distance {
+  font-size: 10pt;
+  font-weight: bold;
+  position: absolute;
+  bottom: 20%;
+  right: 4%;
+}
