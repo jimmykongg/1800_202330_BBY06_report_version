@@ -232,3 +232,28 @@ button.btn:hover{
   bottom: 20%;
   right: 4%;
 }
+
+.recycle-items-container {
+  margin-left:  5%;
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 2fr 2fr;
+
+}
+
+.recycle-items {
+  text-align:center;
+  color: #828358;
+  margin-right: 5%;
+  margin-top: 5%;
+  margin-bottom: 40%;
+}
+
+.recycle-itmes-img {
+width:90%;
+}
+
+.recycle-items-caption{
+  display: block;
+
+}
