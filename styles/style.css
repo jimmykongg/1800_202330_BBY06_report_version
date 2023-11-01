@@ -20,11 +20,12 @@ a:hover {
 }
 
 #navbar {
-  height: 10vh;
+  height: auto;
   font-size: 0.5em;
   font-weight: bold;
   background-color: #EAFDCF;
   padding-top: 1em;
+  padding-bottom: 0;
 }
 
 #navbar a {
