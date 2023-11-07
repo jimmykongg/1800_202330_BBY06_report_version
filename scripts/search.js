@@ -9,14 +9,29 @@ function loadSkeleton(){
             // User is signed in.
             // Do something for the user here.
             // console.log($('#navbarPlaceholder').load('./text/nav_after_login.html'));
-            console.log($('#headerPlaceHolder').load('./text/header.html'));
             console.log($('#footerPlaceholder').load('./text/footer.html'));
         } else {
             // No user is signed in.
             // console.log($('#navbarPlaceholder').load('./text/nav_before_login.html'));
-            console.log($('#headerPlaceHolder').load('./text/header.html'));
             console.log($('#footerPlaceholder').load('./text/footer.html'));
         }
     });
 }
 loadSkeleton();  //invoke the function
+
+function addMenuListener(item) {
+    console.log(item);
+    document.getElementById(item).addEventListener("click", ()=>{
+        passValue(item);
+    })
+}
+
+function passValue(item) {
+    localStorage.setItem("item", item);
+    console.log("clicked..." + item);
+    window.location.href = "./search_Info.html";
+}
+
+addMenuListener("SE06");
+addMenuListener("SE");
+addMenuListener("index");

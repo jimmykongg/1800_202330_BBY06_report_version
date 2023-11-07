@@ -45,15 +45,11 @@
     <!------------------------------>
     <!-- Your HTML Layout go here -->
     <!------------------------------>
+    <nav id="headerPlaceHolder"></nav>
     <div>
-        <a href="#">
-            <span class="material-symbols-outlined fixed-top">menu</span>
-        </a>
-    </div>
-    <header>
         <p class="facts-title">Recycling Facts</p>
         <p class="facts-title-description">Learn more about recycling here!</p>
-    </header>
+    </div>
     <div class="search">
         <input type="text" placeholder="  Search" style="width: 80vw;">
     </div>
@@ -133,12 +129,9 @@
     <script src="./scripts/facts.js"></script>
     <!-- Invoking Script functions -->
     <script>
-        readFact("fact0");
-        readFact("fact1");
-        readFact("fact2");
-        readFact("fact3");
-        readFact("fact4");
-        readFact("fact5");
+        for (x = 0; x < 6; x++) {
+            readFact("fact" + x);
+        }
     </script>
     <!-- <script src="./scripts/script.js"></script> -->
 
