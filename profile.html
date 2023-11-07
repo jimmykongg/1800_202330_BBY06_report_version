@@ -46,6 +46,61 @@
   <!-- Your HTML Layout go here -->
   <!------------------------------>
 
+<section class="main-section vh-100" style="background-color: #f4f5f7;">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col col-lg-6 mb-4 mb-lg-0">
+          <div class="card mb-3" style="border-radius: .5rem;">
+            <div class="row g-0">
+
+              <div class="col-md-4 card-header text-center text-white"
+                style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
+                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava1-bg.webp"
+                  alt="Avatar" class="img-fluid my-5" style="width: 80px;" />
+                <h5 id="name-goes-here"></h5>
+              </div>
+
+              <div class="col-md-8">
+                <div class="card-body p-4">
+                  <h6>Information</h6>
+                  <hr class="mt-0 mb-4">
+                  <div class="row pt-1">
+                    <div class="col-6 mb-3">
+                      <h6>Email</h6>
+                      <p class="text-muted" id="email-goes-here"></p>
+                    </div>
+
+                    <div class="col-6 mb-3">
+                      <h6>Country</h6>
+                      <p class="text-muted" id="country-goes-here"></p>
+                    </div>
+
+                    <div class="col-6 mb-3 change-password-btn">
+                      <button type="button" class="btn btn-outline-primary">Change Password</button> 
+                    </div>
+                  </div>
+
+                  <h6>Recycling History</h6>
+                  <hr class="mt-0 mb-4">
+                  <div class="row pt-1">
+                    <div class="col-6 mb-3">
+                      <h6>Recent Recycling Location</h6>
+                      <p class="text-muted" id="location-goes-here"></p>
+                    </div>
+                    <div class="col-6 mb-3">
+                      <h6>Recycling Counter</h6>
+                      <p id="counter-goes-here" style="color: rgb(89, 92, 94);"></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</section>
+
   <nav id="footerPlaceholder"></nav>
 
   <!-- <footer>
@@ -86,7 +141,7 @@
   <!---------------------------------------------->
   <script src="./scripts/firebaseAPI_BBY06.js"></script>
   <script src="./scripts/skeleton.js"></script>
-  <!-- <script src="./scripts/script.js"></script> --> 
+  <script src="./scripts/profile.js"></script>
 
 </body>
 

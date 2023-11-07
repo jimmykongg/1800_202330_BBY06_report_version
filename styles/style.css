@@ -509,3 +509,27 @@ width:90%;
 .logout-btn {
   margin-top: 3vh;
 }
+
+/*
+ * END OF Account page CSS (Jimmy)
+ */
+
+/*
+ * START OF Profile page CSS (Jimmy) ---------------------------------------------
+ */
+
+.main-section {
+  height: 100vh;
+  margin-top: 0;
+}
+
+.card-header {
+  background: rgb(2,0,36);
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(163,249,89,1) 0%, rgba(0,212,255,1) 100%);
+}
+
+.vh-100 h5{
+  color: black;
+}
+
+
