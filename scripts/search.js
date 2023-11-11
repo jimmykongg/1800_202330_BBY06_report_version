@@ -27,11 +27,11 @@ function addMenuListener(item) {
 }
 
 function passValue(item) {
-    localStorage.setItem("item", item);
+    localStorage.setItem("location", item);
     console.log("clicked..." + item);
-    window.location.href = "./search_Info.html";
+    window.location.href = "./search_info.html";
 }
 
 addMenuListener("SE06");
-addMenuListener("SE");
-addMenuListener("index");
+addMenuListener("SE02");
+addMenuListener("SW02");

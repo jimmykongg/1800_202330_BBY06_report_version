@@ -17,14 +17,16 @@ function loadSkeleton(){
         }
     });
 }
+
+// Returns the reward
+function readLocation(location) {
+    var container = document.querySelector(".header");
+    db.collection("locations").doc(location)
+        .onSnapshot(factDoc => {
+            console.log("Current document data: " + factDoc.data());
+            document.getElementById("reward-goes-here").innerHTML = factDoc.data().reward;
+        })
+    container.style.backgroundImage = "url('./images/" + localStorage.getItem("location") + ".jpg')";
+}
+
 loadSkeleton();  //invoke the function
-
-function passValue(item) {
-    localStorage.setItem("item", item);
-    console.log("clicked..." + item);
-    window.location.href = "search_Info.html";
-}
-
-function readPage() {
-    console.log($(localStorage.getItem("item") + "PlaceHolder").load('./text/SE06.html'));
-}

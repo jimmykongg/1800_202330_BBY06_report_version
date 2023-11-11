@@ -127,7 +127,7 @@ button.btn:hover{
 
 .material-symbols-outlined.recycle-items {
   position:absolute;
-  margin-top: 1%;
+  margin-top: 2%;
   top: 0;
   left: 5%;
   font-size: 20pt;
@@ -174,7 +174,7 @@ button.btn:hover{
   margin-top: 4vh;
   width: 85vw;
   height: 20vh;
-  background-color: rgb(160, 160, 160);
+  background-color: #358600;
   border-radius: 20px;
   box-shadow: 3px 5px rgba(162, 162, 162, 0.2);
 }
@@ -184,13 +184,13 @@ button.btn:hover{
   position: absolute;
   top: 5%;
   left: 3%;
-  background-color: black;
+  background-color: #63C132;
   border-radius: 10px;
   color: white;
   font-size: 8pt;
   font-weight: bold;
   text-align: center;
-  width: 10vw;
+  width: 15vw;
 }
 
 .location > img {
@@ -201,7 +201,7 @@ button.btn:hover{
   height: 5vh;
   border-radius: 20px;
   overflow: hidden;
-  object-fit: fill;
+  object-fit: cover;
 }
 
 .location > #title {
@@ -239,6 +239,66 @@ button.btn:hover{
   position: absolute;
   bottom: 20%;
   right: 4%;
+}
+
+.header{
+  background-image: URL("../images/SE06.jpg");
+  background-size: cover;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  overflow: hidden;
+  width: 100vw;
+  height: 30vh;
+  position: sticky;
+}
+
+.title-container {
+  position: absolute;
+  bottom: 3vh;
+}
+
+.title-container .title{
+  margin-left: 10vw;
+  margin-bottom: 0;
+  font-weight:bolder;
+  font-size: 20pt;
+  color: white;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  width: 100vw;
+  height: auto;
+}
+
+.logo-container .logo {
+  font-size: 25pt;
+  padding-left: 5vw;
+  padding-top: 1vh;
+}
+
+.logo-container .text {
+  padding-left: 5vw;
+  font-size: 12pt;
+}
+
+.info .reward {
+  display: flex;
+  width: 90vw;
+  height: 5vh;
+  margin-top: 2vh;
+  margin-left: 5vw;
+  border-image: none;
+  border: 0.1em solid;
+  position: unset;
+  justify-content: center;
+  align-items: center;
+}
+
+.info .reward span {
+
 }
 
 /*
@@ -388,7 +448,7 @@ button.btn:hover{
  */
 
 .recycle-items-container {
-  margin-left:  5%;
+  margin-left: 5%;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 2fr 2fr;
