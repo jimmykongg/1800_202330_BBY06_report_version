@@ -48,28 +48,27 @@
 
     <!-- <nav id="headerPlaceHolder"></nav> -->
 
-    <div class="header">
-        <nav id="headerPlaceHolder"></nav>
-        <div class="title-container">
-            <p class="title">BCIT Campus - SE06</p>
-            <p class="title">White Ave, Burnaby</p>
-        </div>
-    </div>
-    <div class="info">
+    <div class="header"></div>
+    <div class="info"></div>
+    <div class="navigate"></div>
+    <div class="content"></div>
 
+    <div class="navigate-button">
+        <button type="button" class="btn btn-outline-success" id="myBtn"style="font-weight: bold;">Navigate!</button>
     </div>
-
 
     <nav id="footerPlaceholder"></nav>
     <!---------------------------------------------->
     <!-- Your own JavaScript functions go here    -->
     <!---------------------------------------------->
     <script src="../scripts/firebaseAPI_BBY06.js"></script>
-    <script src="../scripts/skeleton.js"></script>
     <script src="../scripts/search_Info.js"></script>
+    <script src="../scripts/skeleton.js"></script>
     <script>
-        createRecyclable();
-        readLocation(localStorage.getItem("location"));
+        createHeader();
+        createRecyclables();
+        createNavigation();
+        createContent();
     </script>
     <!-- <script src="./scripts/script.js"></script> -->
 </body>

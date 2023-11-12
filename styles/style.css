@@ -83,7 +83,6 @@ button.btn {
 
 button.btn:hover{
   background-color: #a6fadb;
-  
 }
 
 .material-icons.md-60 { 
@@ -297,8 +296,34 @@ button.btn:hover{
   align-items: center;
 }
 
-.info .reward span {
+.content {
+  width: 100vw;
+  margin-top: 0.5em;
+  border-bottom: black solid;
+  border-top: black solid;
+  border-width: 1px;
+}
 
+.content #recyclables {
+  display: block;
+  padding: 2em;
+  font-size: 8pt;
+  font-weight: bold;
+}
+
+.content #item {
+  display: block;
+  padding: 2em;
+  padding-top: 0;
+  font-size: 9pt;
+  color: gray;
+}
+
+.navigate-button {
+  display: flex;
+  padding: 2em;
+  justify-content: center;
+  align-items: center;
 }
 
 /*
