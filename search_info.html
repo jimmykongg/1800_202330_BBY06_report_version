@@ -56,17 +56,7 @@
         </div>
     </div>
     <div class="info">
-        <div class="logo-container">
-            <span class="material-symbols-outlined logo">newspaper</span>
-            <span class="text">Papers</span>
-        </div>
-        <div class="logo-container">
-            <span class="material-symbols-outlined logo">water_bottle_large</span>
-            <span class="text">Plastic Bottles</span>
-        </div>
-        <div class="reward">
-            <span>You can get a <span id="reward-goes-here"></span> if you go recycle there</span>
-        </div>
+
     </div>
 
 
@@ -78,6 +68,7 @@
     <script src="../scripts/skeleton.js"></script>
     <script src="../scripts/search_Info.js"></script>
     <script>
+        createRecyclable();
         readLocation(localStorage.getItem("location"));
     </script>
     <!-- <script src="./scripts/script.js"></script> -->
