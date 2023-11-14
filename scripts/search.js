@@ -51,6 +51,7 @@ async function readJSONbin() {
         
         db.collection("bins").add({
             bin_id: bin["bin_id"],
+            street: bin.street,
             city: bin.city,
             province: bin.province,
             country: bin.country,
@@ -60,4 +61,25 @@ async function readJSONbin() {
         });
     }
 }
+
+/* Redirects to map.html by click event 
+ * and stores the document ID of recycling locations
+ */
+// Developed by Jimmy
+document.getElementById("first-location").addEventListener("click", function(event) {
+    localStorage.setItem("docID", "6aKItibiBjY2cDWrA89u");
+    window.location.href = "./map.html";
+});
+
+document.getElementById("second-location").addEventListener("click", function(event) {
+    localStorage.setItem("docID", "EKck6GUBPubHSrBZ6v8f");
+    window.location.href = "./map.html";
+});
+
+document.getElementById("third-location").addEventListener("click", function(event) {
+    localStorage.setItem("docID", "EkvT4ux1fSxodGsX89Z8");
+    window.location.href = "./map.html";
+});
+
+
 

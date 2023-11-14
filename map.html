@@ -1,8 +1,10 @@
+<!-- Developed by Jimmy -->
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <title>Main Page</title>
+    <title>Map</title>
     <meta name="comp1800 template" content="My 1800 App">
 
     <!-- Required meta tags -->
@@ -30,6 +32,12 @@
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
 
     <!-------------------------------------------->
+    <!-- Map Box API -->
+    <!-------------------------------------------->
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.js"></script>
+
+    <!-------------------------------------------->
     <!-- Other libraries and styles of your own -->
     <!-------------------------------------------->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -46,67 +54,44 @@
     <!-- Your HTML Layout go here -->
     <!------------------------------>
     <nav id="headerPlaceHolder"></nav>
-    <div>
-        <!-- Put the map placeholder here.-->
-        <header class="search-title">
-            <div>
-                <span class="material-symbols-outlined filled" style="font-size: 20pt;">near_me</span>
-                <span id="heading">BCIT Campus, Burnaby</span>
-                <span id="description">Within 200m</span>
-            </div>
-        </header>
-        <div class="search">
-            <input type="text" placeholder="  Search" style="width: 80vw;">
+
+    <!-- Main Body -->
+    <main>
+        <!-- MAPBOX -->
+        <h2 id="map-title">Recycling Map</h2>
+        <div id="map" class="border border-3 border-success"></div>
+
+        <!-- Start recycling button -->
+        <div class="position-relative mb-3">
+            <button type="button" class="btn btn-outline-success position-absolute top-0 start-50 translate-middle">Start Recycling</button>
         </div>
-        <div class="location-container">
-            <div class="location">
-                <span class="types" id="SE06">More Info</span>
-                <img src="./images/SE06.jpg" alt="icon1">
-                <span id="title">BCIT Campus - SE 06, Burnaby</span>
-                <span class="material-symbols-outlined favorite">favorite</span>
-                <div class="location info" id="first-location">
-                    <span class="material-symbols-outlined recycle-items">newspaper</span>
-                    <span class="description">Paper</span>
-                    <span class="material-symbols-outlined recycle-items" style="top: 40%;">water_bottle_large</span>
-                    <span class="description" style="top: 50%;">Plastic Bottles</span>
-                    <span class="material-symbols-outlined navigate">assistant_direction</span>
-                    <span class="distance">50m | ~30 sec</span>
-                </div>
+
+        <!-- FAQ -->
+        <div class="accordion accordion-flush" id="accordionFlushExample">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="flush-headingOne">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                  What should I do now?
+                </button>
+              </h2>
+              <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body">The <span id="red">Red</span> spot shown in the map is the recycling location; <span id="black">Black</span> spot is your current location. Please head to the red spot.</div>
+              </div>
             </div>
-        </div>
-        <div class="location-container">
-            <div class="location">
-                <span class="types" id="SE02">More Info</span>
-                <img src="./images/SE02.jpg" alt="icon1">
-                <span id="title">BCIT Campus - SE 02, Burnaby</span>
-                <span class="material-symbols-outlined favorite">favorite</span>
-                <div class="location info" id="second-location">
-                    <span class="material-symbols-outlined recycle-items">newspaper</span>
-                    <span class="description">Paper</span>
-                    <span class="material-symbols-outlined recycle-items" style="top: 40%;">water_bottle_large</span>
-                    <span class="description" style="top: 50%;">Plastic Bottles</span>
-                    <span class="material-symbols-outlined navigate">assistant_direction</span>
-                    <span class="distance">100m | ~1 min</span>
-                </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="flush-headingTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                  What happens when I've reached the recycling spot?
+                </button>
+              </h2>
+              <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body">You'll see the <code>Start Recycling</code> button pops up in this page when you've reached there. Click the button to start recycling and receive your rewards!</div>
+              </div>
             </div>
-        </div>
-        <div class="location-container">
-            <div class="location icon-container">
-                <span class="types" id="SW02">More Info</span>
-                <img src="./images/SW02.jpg" alt="icon1">
-                <span id="title">BCIT Campus - SW 02, Burnaby</span>
-                <span class="material-symbols-outlined favorite">favorite</span>
-                <div class="location info" id="third-location">
-                    <span class="material-symbols-outlined recycle-items">newspaper</span>
-                    <span class="description">Paper</span>
-                    <span class="material-symbols-outlined recycle-items" style="top: 40%;">water_bottle_large</span>
-                    <span class="description" style="top: 50%;">Plastic Bottles</span>
-                    <span class="material-symbols-outlined navigate">assistant_direction</span>
-                    <span class="distance">200m | ~2 min</span>
-                </div>
-            </div>
-        </div>
-    </div>
+          </div>
+    </main>
+
+
 
     <nav id="footerPlaceholder"></nav>
 
@@ -148,7 +133,7 @@
     <!---------------------------------------------->
     <script src="./scripts/firebaseAPI_BBY06.js"></script>
     <script src="./scripts/skeleton.js"></script>
-    <script src="./scripts/search.js"></script>
+    <script src="./scripts/map.js"></script>
     <!-- <script src="./scripts/script.js"></script> -->
 
 </body>

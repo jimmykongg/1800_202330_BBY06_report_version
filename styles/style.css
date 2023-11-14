@@ -624,4 +624,51 @@ width:90%;
   color: black;
 }
 
+/*
+ * END OF Profile page CSS (Jimmy) ---------------------------------------------
+ */
 
+/*
+ * START OF Map page CSS (Jimmy) ---------------------------------------------
+ */
+
+#map-title {
+  text-align: center;
+  color: rgb(192, 210, 161);
+  font-size: 2.2rem;
+  margin-bottom: 2vh;
+}
+
+#map {
+  width: 90%;
+  margin: 0 auto;
+  height: 40vh;
+  margin-bottom: 5vh;
+}
+
+#red {
+  font-size: 1.1em;
+  color: rgb(223, 96, 76);
+  font-weight: bold;
+}
+
+#black {
+  font-size: 1.1em;
+  font-weight: bold;
+}
+
+.accordion {
+  margin-top: 10vh;
+}
+
+.accordion-button {
+  font-size: 2.5vh;
+}
+
+.accordion-body {
+  font-size: 2vh;
+}
+
+/*
+ * END OF Map page CSS (Jimmy) ---------------------------------------------
+ */
