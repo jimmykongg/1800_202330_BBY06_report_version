@@ -53,6 +53,9 @@
     <div class="search">
         <input type="text" placeholder="  Search" style="width: 80vw;">
     </div>
+    <div class="facts-body">
+
+    </div>
     <div class="fact-container">
         <div class="fact">
             <img src="./images/can.png" alt="Icon of a Can">
@@ -129,6 +132,7 @@
     <script src="./scripts/facts.js"></script>
     <!-- Invoking Script functions -->
     <script>
+        createFacts();
         for (x = 0; x < 6; x++) {
             readFact("fact" + x);
         }

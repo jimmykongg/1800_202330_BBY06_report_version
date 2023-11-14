@@ -574,6 +574,12 @@ width:90%;
   left: 5vw;
 }
 
+.fact > img.glass {
+  width: 5vw;
+  left: 6%;
+  top: 13%;
+}
+
 /*
  * START OF Account page CSS (Jimmy) ---------------------------------------------
  */
