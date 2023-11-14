@@ -46,7 +46,7 @@
   <!-- Your HTML Layout go here -->
   <!------------------------------>
 
-<section class="main-section vh-100" style="background-color: #f4f5f7;">
+  <section class="main-section vh-100" style="background-color: #f4f5f7;">
     <div class="container py-5 h-100">
       <div class="row d-flex justify-content-center align-items-center h-100">
         <div class="col col-lg-6 mb-4 mb-lg-0">
@@ -55,8 +55,8 @@
 
               <div class="col-md-4 card-header text-center text-white"
                 style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
-                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava1-bg.webp"
-                  alt="Avatar" class="img-fluid my-5" style="width: 80px;" />
+                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava1-bg.webp" alt="Avatar"
+                  class="img-fluid my-5" style="width: 80px;" />
                 <h5 id="name-goes-here"></h5>
               </div>
 
@@ -75,8 +75,55 @@
                       <p class="text-muted" id="country-goes-here"></p>
                     </div>
 
-                    <div class="col-6 mb-3 change-password-btn">
-                      <button type="button" class="btn btn-outline-primary">Change Password</button> 
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-primary my-2" data-bs-toggle="modal"
+                      data-bs-target="#change-profile">
+                      Edit your profile
+                    </button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="change-profile" tabindex="-1" aria-labelledby="change-profile"
+                      aria-hidden="true">
+                      <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="change-profile-label">Edit Profile</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body">
+
+                            <!-- User input form to change profile-->
+                            <div class="container">
+                              <p>Please refresh the page after you have saved the changes</p>
+                              <form>
+                                <fieldset class="mb-3" id="personalInfoFields">
+                                  <div class="form-group py-3">
+                                    <label>Name</label>
+                                    <input type="text" id="nameInput" class="form-control"
+                                      placeholder="Enter your name">
+                                  </div>
+                                  <div class="form-group py-3">
+                                    <label>Email</label>
+                                    <input type="text" id="emailInput" class="form-control"
+                                      placeholder="Enter your email">
+                                  </div>
+                                  <div class="form-group py-3">
+                                    <label>Country</label>
+                                    <input type="text" id="countryInput" class="form-control"
+                                      placeholder="Enter your country">
+                                  </div>
+                                </fieldset>
+                              </form>
+                            </div>
+
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onclick="saveUserInfo()">Save changes</button>
+                          </div>
+                        </div>
+
+                      </div>
                     </div>
                   </div>
 
@@ -99,7 +146,7 @@
         </div>
       </div>
     </div>
-</section>
+  </section>
 
   <nav id="footerPlaceholder"></nav>
 
