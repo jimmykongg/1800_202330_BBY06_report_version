@@ -190,6 +190,7 @@ button.btn:hover{
   font-weight: bold;
   text-align: center;
   width: 15vw;
+  cursor: pointer;
 }
 
 .location > img {

@@ -23,6 +23,7 @@ function readLocation(location) {
     var container = document.querySelector(".header");
     db.collection("locations").doc(location)
     .onSnapshot(locDoc => {
+        console.log(locDoc.data().reward);
         document.getElementById("reward-goes-here").innerHTML = locDoc.data().reward;
     })
     container.style.backgroundImage = "url('./images/" + localStorage.getItem("location") + ".jpg')";
@@ -83,6 +84,10 @@ function createRecyclables() {
         reward.classList.add("reward");
         reward.innerHTML = '<span>You can get a <span id="reward-goes-here"></span> if you go recycle there</span>';
         outerDiv.appendChild(reward);
+        db.collection("locations").doc(localStorage.getItem("location"))
+            .onSnapshot(reward => {
+                document.getElementById("reward-goes-here").innerHTML = reward.data().reward;
+            })
     })
 }
 
