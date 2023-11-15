@@ -17,15 +17,13 @@ function createFacts() {
         const facts = [];
         const descriptions = [];
 
-        for (let x = 1; x <= numOfFacts; x++) {
+        for (let x = 0; x < numOfFacts; x++) {
             db.collection("facts").doc("fact" + x)
                 .onSnapshot(factDoc => {
                     const innerDiv = document.createElement("div")
                     innerDiv.classList.add("fact-container");
                     const newDiv = document.createElement("div")
                     newDiv.classList.add("fact")
-
-                    console.log(factDoc.data().type);
 
                     if (factDoc.data().type == "aluminum") {
                         var imageLink = "./images/can.png"
@@ -46,9 +44,9 @@ function createFacts() {
                     descriptions.push(sourceLink);
                     for (let x = 0; x < containers.length; x++) {
             
-                        const logoGoesHereId = "fact"+ (x + 1) + "-goes-here";
+                        const factGoesHereId = "fact" + x + "-goes-here";
             
-                        document.getElementById(logoGoesHereId).innerHTML = factDoc.data()[facts[x]];
+                        document.getElementById(factGoesHereId).innerHTML = facts[x];
                     }
             })
         }
