@@ -46,7 +46,7 @@ function showMap() {
           coordinates = [lng, lat];
           console.log(coordinates);
           // Coordinates
-          event_name = bin.data().street; // Event Name
+          street_name = bin.data().street; // Event Name
           preview = bin.data().details; // Text Preview
           // img = doc.data().posterurl; // Image
           // url = doc.data().link; // URL
@@ -56,7 +56,7 @@ function showMap() {
           features.push({
             'type': 'Feature',
             'properties': {
-              'street': `<strong>${event_name}</strong><p>`
+              'description': `Destination: ${street_name}`
             },
             'geometry': {
               'type': 'Point',
@@ -90,7 +90,6 @@ function showMap() {
 
           //-----------------------------------------------------------------------
           // Add Click event listener, and handler function that creates a popup
-          // that displays info from "hikes" collection in Firestore
           //-----------------------------------------------------------------------
           map.on('click', 'places', (e) => {
             // Extract coordinates array.
@@ -150,7 +149,7 @@ function showMap() {
                     'coordinates': userLocation
                   },
                   'properties': {
-                    'description': 'Your location'
+                    'description': 'Your current location'
                   }
                 }]
               }

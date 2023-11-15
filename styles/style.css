@@ -644,7 +644,7 @@ width:90%;
   width: 90%;
   margin: 0 auto;
   height: 40vh;
-  margin-bottom: 5vh;
+  margin-bottom: 4vh;
 }
 
 #red {
@@ -668,6 +668,10 @@ width:90%;
 
 .accordion-body {
   font-size: 2vh;
+}
+
+.accordion-body p {
+  margin-top: 1vh;
 }
 
 /*

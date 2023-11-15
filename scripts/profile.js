@@ -155,3 +155,8 @@ function saveUserInfo() {
         console.log("Document successfully updated!");
     })
 }
+
+document.getElementById("save-btn").addEventListener("click", function(event) {
+    saveUserInfo();
+});
+
