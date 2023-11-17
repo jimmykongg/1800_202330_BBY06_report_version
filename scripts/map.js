@@ -66,8 +66,9 @@ function addBinPin(map) {
         coordinates = [lng, lat];
         console.log(coordinates);
         // Store the lat and lng in localStorage
-        localStorage.setItem("lat", lat);
-        localStorage.setItem("lng", lng);
+        // localStorage.setItem("lat", lat);
+        // localStorage.setItem("lng", lng);
+        localStorage.setItem("street", bin.data().street);
         // Coordinates
         street_name = bin.data().street; // Event Name
         preview = bin.data().details; // Text Preview
@@ -253,7 +254,7 @@ function getGeolocation() {
       var targetlong = localStorage.getItem("lng");
 
       // Calculate distance in meters, and get radius input
-      var d = getDistanceInMeters(lat, long, targetlat, targetlong);
+      var d = getDistanceInMeters(lat, long, lat, long);
       // We assume when users have reached within 10 meters, they have reached the destination
       var radius = 10;
 
@@ -290,19 +291,6 @@ getGeolocation();
  */
 setInterval(getGeolocation, 5000);
 
-//---------------------------------------------------------------
-// A DOM event that pops up a navigation button below the map.
-//---------------------------------------------------------------
-function createButton() {
-  let parentNode = document.getElementById("main-body");
-  let referenceNode = document.getElementById("accordionFlush");
-  let newNode = document.createElement("div");
-  newNode.setAttribute("class", "position-relative mb-3");
-  newNode.innerHTML = "<button type='button' class='btn btn-outline-success position-absolute top-0 start-50 translate-middle'><a href='./rewards.html'>Start Recycling</a></button>";
-
-  parentNode.insertBefore(newNode, referenceNode);
-}
-
 //--------------------------------------------------------
 // Function takes 2 points (long and lat)
 // converts it to distance, and calculates the distance 
@@ -326,6 +314,36 @@ function getDistanceInMeters(lat1, lon1, lat2, lon2) {
 function deg2rad(deg) {
   return deg * (Math.PI / 180)
 }
+
+//-----------------------------------------------------------------------------
+// This function is called whenever the user clicks on the "bookmark" icon.
+// It adds the hike to the "bookmarks" array
+// Then it will change the bookmark icon from the hollow to the solid version. 
+//-----------------------------------------------------------------------------
+
+
+//---------------------------------------------------------------
+// A DOM event that pops up a navigation button below the map.
+//---------------------------------------------------------------
+function createButton() {
+  let parentNode = document.getElementById("main-body");
+  let referenceNode = document.getElementById("accordionFlush");
+  let newNode = document.createElement("div");
+  newNode.setAttribute("class", "position-relative mb-3");
+  newNode.innerHTML = "<button type='button' id='recycle-btn' class='btn btn-outline-success position-absolute top-0 start-50 translate-middle'><a href='./rewards.html'>Start Recycling</a></button>";
+
+  parentNode.insertBefore(newNode, referenceNode);
+}
+
+
+
+
+
+
+
+
+
+
 
 
 

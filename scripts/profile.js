@@ -30,9 +30,8 @@ function insertEmailFromFirestore() {
             console.log(user.uid);
             currentUser = db.collection("users").doc(user.uid);
             currentUser.get().then(userDoc => {
-                var userName = userDoc.data().email;
-                console.log(userName);
-                document.getElementById("email-goes-here").innerText = userName;
+                var userEmail = userDoc.data().email;
+                document.getElementById("email-goes-here").innerText = userEmail;
             })
         } else {
             console.log("No user is logged in.");
@@ -49,9 +48,8 @@ function insertCountryFromFirestore() {
             console.log(user.uid);
             currentUser = db.collection("users").doc(user.uid);
             currentUser.get().then(userDoc => {
-                var userName = userDoc.data().country;
-                console.log(userName);
-                document.getElementById("country-goes-here").innerText = userName;
+                var userCountry = userDoc.data().country;
+                document.getElementById("country-goes-here").innerText = userCountry;
             })
         } else {
             console.log("No user is logged in.");
@@ -61,16 +59,15 @@ function insertCountryFromFirestore() {
 
 insertCountryFromFirestore();
 
-/* Insert email */
+/* Insert location */
 function insertLocationFromFirestore() {
     firebase.auth().onAuthStateChanged(user => {
         if (user) {
             console.log(user.uid);
             currentUser = db.collection("users").doc(user.uid);
             currentUser.get().then(userDoc => {
-                var userName = userDoc.data().recentLocation;
-                console.log(userName);
-                document.getElementById("location-goes-here").innerText = userName;
+                var userLocation = userDoc.data().recentLocation;
+                document.getElementById("location-goes-here").innerText = userLocation;
             })
         } else {
             console.log("No user is logged in.");
@@ -80,16 +77,15 @@ function insertLocationFromFirestore() {
 
 insertLocationFromFirestore();
 
-/* Insert counter */
-function insertCounterFromFirestore() {
+/* Insert point */
+function insertPointFromFirestore() {
     firebase.auth().onAuthStateChanged(user => {
         if (user) {
             console.log(user.uid);
             currentUser = db.collection("users").doc(user.uid);
             currentUser.get().then(userDoc => {
-                var userName = userDoc.data().recycleCounter;
-                console.log(userName);
-                document.getElementById("counter-goes-here").innerText = userName;
+                var userPoint = userDoc.data().recyclePoint;
+                document.getElementById("point-goes-here").innerText = userPoint;
             })
         } else {
             console.log("No user is logged in.");
@@ -97,42 +93,40 @@ function insertCounterFromFirestore() {
     })
 }
 
-insertCounterFromFirestore();
+insertPointFromFirestore();
 
-var currentUser; 
-            
 function populateUserInfo() {
-            firebase.auth().onAuthStateChanged(user => {
-                // Check if user is signed in:
-                if (user) {
+    firebase.auth().onAuthStateChanged(user => {
+        // Check if user is signed in:
+        if (user) {
 
-                    //go to the correct user document by referencing to the user uid
-                    currentUser = db.collection("users").doc(user.uid)
-                    //get the document for current user.
-                    currentUser.get()
-                        .then(userDoc => {
-                            //get the data fields of the user
-                            var userName = userDoc.data().name;
-                            var userEmail = userDoc.data().email;
-                            var userCountry = userDoc.data().country;
+            //go to the correct user document by referencing to the user uid
+            currentUser = db.collection("users").doc(user.uid)
+            //get the document for current user.
+            currentUser.get()
+                .then(userDoc => {
+                    //get the data fields of the user
+                    var userName = userDoc.data().name;
+                    var userEmail = userDoc.data().email;
+                    var userCountry = userDoc.data().country;
 
-                            //if the data fields are not empty, then write them in to the form.
-                            if (userName != null) {
-                                document.getElementById("nameInput").value = userName;
-                            }
-                            if (userEmail != null) {
-                                document.getElementById("emailInput").value = userEmail;
-                            }
-                            if (userCountry != null) {
-                                document.getElementById("countryInput").value = userCountry;
-                            }
-                        })
-                } else {
-                    // No user is signed in.
-                    console.log ("No user is signed in");
-                }
-            });
+                    //if the data fields are not empty, then write them in to the form.
+                    if (userName != null) {
+                        document.getElementById("nameInput").value = userName;
+                    }
+                    if (userEmail != null) {
+                        document.getElementById("emailInput").value = userEmail;
+                    }
+                    if (userCountry != null) {
+                        document.getElementById("countryInput").value = userCountry;
+                    }
+                })
+        } else {
+            // No user is signed in.
+            console.log("No user is signed in");
         }
+    });
+}
 
 //call the function to run it 
 populateUserInfo();
@@ -141,9 +135,9 @@ populateUserInfo();
 function saveUserInfo() {
 
     // Get user entered values
-    userName = document.getElementById('nameInput').value;      
-    userEmail = document.getElementById('emailInput').value;     
-    userCountry = document.getElementById('countryInput').value;  
+    userName = document.getElementById('nameInput').value;
+    userEmail = document.getElementById('emailInput').value;
+    userCountry = document.getElementById('countryInput').value;
 
     // Update user's document in Firestore
     currentUser.update({
@@ -151,12 +145,12 @@ function saveUserInfo() {
         email: userEmail,
         country: userCountry
     })
-    .then(() => {
-        console.log("Document successfully updated!");
-    })
+        .then(() => {
+            console.log("Document successfully updated!");
+        })
 }
 
-document.getElementById("save-btn").addEventListener("click", function(event) {
+document.getElementById("save-btn").addEventListener("click", function (event) {
     saveUserInfo();
 });
 
