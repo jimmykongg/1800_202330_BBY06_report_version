@@ -66,6 +66,7 @@ async function readJSONbin() {
  * and stores the document ID of recycling locations
  */
 // Developed by Jimmy
+
 document.getElementById("first-location").addEventListener("click", function(event) {
     localStorage.setItem("docID", "6aKItibiBjY2cDWrA89u");
     window.location.href = "./map.html";

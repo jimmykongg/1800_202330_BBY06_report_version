@@ -1,6 +1,16 @@
 // Developed by Jimmy
 
+//-----------------------------------------------------
+// Get starting location of user which is used to 
+// center themselves when the page is loaded
+//------------------------------------------------------
 var map;
+
+function getStartLocation() {
+  navigator.geolocation.getCurrentPosition(position => {
+    return [position.coords.longitude, position.coords.latitude];
+  });
+}
 
 //---------------------------------------------------------------
 // Function to get user's location dynamically every 5 seconds
@@ -12,11 +22,14 @@ var map;
 
 function showMap() {
   // Defines and initiates basic mapbox data
+
+  const startPosition = getStartLocation();
+
   mapboxgl.accessToken = 'pk.eyJ1IjoiYWRhbWNoZW4zIiwiYSI6ImNsMGZyNWRtZzB2angzanBjcHVkNTQ2YncifQ.fTdfEXaQ70WoIFLZ2QaRmQ';
   map = new mapboxgl.Map({
     container: 'map', // Container ID
     style: 'mapbox://styles/mapbox/streets-v11', // Styling URL
-    center: [-123.001949, 49.249118], // Starting position 
+    center: [-123.001818, 49.249455], // Starting position
     zoom: 13 // Starting zoom
   });
 
@@ -277,6 +290,8 @@ function getGeolocation() {
     // Geolocation isn’t available
     console.error("Geolocation is not supported by this browser.");
   }
+
+  setTimeout(getGeolocation, 5000);
 }
 
 /** 
@@ -287,8 +302,11 @@ getGeolocation();
 
 /** 
  * Call getGeolocation every 5 seconds using nested setTimeout.
+ * 
+ * We use nested setTimeout instead of setInterval so that
+ * internal scheduler guarantees the fixed delayed!
  */
-setInterval(getGeolocation, 5000);
+setTimeout(getGeolocation, 5000);
 
 //---------------------------------------------------------------
 // A DOM event that pops up a navigation button below the map.
