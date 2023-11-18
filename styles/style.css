@@ -327,177 +327,6 @@ button.btn:hover{
   align-items: center;
 }
 
-/*
- * START OF Rewards page CSS (Jimmy) ---------------------------------------------
- */
-
-.main {
-  display: grid;
-  grid-template-rows: 10vh 10vh 60vh;
-  grid-template-columns: 100vw;
-}
-
-.congrats {
-  grid-row: 1 / span 1;
-  grid-column: 1 / span 1;
-}
-
-.time-count {
-  grid-row: 2 / span 1;
-  grid-column: 1 / span 1;
-  margin-top: 1vh;
-  position: relative;
-  border: 0.2em solid black;
-  margin: 1.2em 1.2em;
-}
-
-.time-count p {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 100%;
-  text-align: center;
-  font-size: 1.2em;
-}
-
-.rewards {
-  grid-row: 3 / span 1;
-  grid-column: 1 / span 1;
-  display: grid;
-  grid-template-rows: 2fr 8fr;
-  grid-template-columns: 1fr;
-}
-
-.message {
-  grid-row: 1 / span 1;
-  background-color: #FFF39C;
-  position: relative;
-}
-
-.message p {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 100%;
-  text-align: center;
-  font-size: 1.2em;
-  font-weight: bold;
-  word-spacing: 1em;
-  text-transform: capitalize;
-}
-
-.reward-container {
-  grid-row: 2 / span 1;
-  display: grid;
-  position: relative;
-  grid-template-rows: repeat(2, 1fr);
-  grid-template-columns: 1fr 1fr;
-  grid-template-areas: "reward-a reward-c"
-                       "reward-b reward-d";
-  justify-items: center;
-}
-
-.vl {
-  border-left: 4px solid #13b076;
-  height: 80%;
-  position: absolute;
-  left: 50%;
-  margin-left: -3px;
-  top: 10%;
-}
-
-.rewards > p {
-  text-align: center;
-}
-
-.reward-a {
-  grid-area: reward-a;
-  margin-top: 2vh;
-}
-
-.reward-b {
-  grid-area: reward-b;
-  margin-top: 2vh;
-}
-
-.reward-c {
-  grid-area: reward-c;
-  margin-top: 4vh;
-}
-
-.reward-d {
-  grid-area: reward-d;
-  margin-top: 4vh;
-}
-
-.reward {
-  width: 80%;
-  height: 80%;
-  border: 0.5em solid;
-  border-image: url('../images/flower_border.png') 30 30 30 stretch;
-  position: relative;
-}
-
-.reward p:nth-of-type(1) {
-  position: absolute;
-  right: 5%;
-  top: 10%;
-  background-color:#ccc;
-  border-radius: 0.5em;
-  border: 0.1em solid #13b076;
-  width: 8em;
-  text-align: center;
-}
-
-.reward p:nth-of-type(2) {
-  position: absolute;
-  bottom: 0;
-  height: 40%;
-  width: 100%;
-  margin-bottom: 0;
-  background-color: #EAFDCF;
-  border: 0.1em solid #13b076;
-  padding: 0.5em;
-  text-transform: uppercase;
-  font-size: 1.2em;
-  color: rgb(238, 126, 105);
-}
-
-.reward p:nth-of-type(1) span{
-  font-weight: bold;
-}
-
-/*
- * END OF Rewards page CSS (Jimmy)
- */
-
-.recycle-items-container {
-  margin-left: 5%;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 2fr 2fr;
-
-}
-
-.recycle-items {
-  text-align:center;
-  color: #828358;
-  margin-right: 5%;
-  margin-top: 5%;
-  margin-bottom: 40%;
-}
-
-.recycle-itmes-img {
-width:90%;
-}
-
-.recycle-items-caption{
-  display: block;
-
-}
-
 /* Start of Facts Page -----------------------------------------------
 */
 
@@ -601,6 +430,61 @@ width:90%;
 
 .logout-btn {
   margin-top: 3vh;
+}
+
+/*
+ * START OF Rewards page CSS (Jimmy)
+ * 
+ * Source: https://codepen.io/superjaberwocky/pen/rLKxOa
+ */
+ .callout {
+  padding: 3vh;
+  margin: 3vh 0;
+  border: 1px solid #eee;
+  border-left-width: 8px;
+  border-radius: 3px;
+  border-left-color: rgb(192, 210, 161);
+}
+
+.callout h3 {
+  margin-top: 0;
+  margin-bottom: 3vh;
+  color: rgb(192, 210, 161);
+}
+
+.callout p {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+#tab-navs button {
+  color: rgb(96, 131, 36);
+}
+
+#tab-navs button:focus {
+  color: black;
+  font-weight: bold;
+}
+
+#nav-tabContent .card {
+  height: 42vh;
+}
+
+.card-img-top {
+  height: 10vh;
+  width: 10vw;
+  align-self: center;
+}
+
+.card-href {
+  background-color: rgb(192, 210, 161);
+  border-color: white;
+  font-weight: bold;
+}
+
+
+.card-href:hover {
+  background-color: rgb(96, 131, 36);
 }
 
 /*

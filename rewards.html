@@ -46,57 +46,76 @@
   <!-- Your HTML Layout go here -->
   <!------------------------------>
   <nav id="headerPlaceHolder"></nav>
-  <div>
-    <!-- Put the map placeholder here.-->
 
-    <div class="main">
-      <div class="congrats">
-        <h2>Congratulations </h2>
-        <h3>You've reached the recycling bin, Happy Recycling !</h3>
+  <div class="callout callout-success">
+    <h3>Congratulations! Happy Recycling Now</h3>
+    <p>Keep recycling to earn exclusive rewards</p>
+    <p>You have <span id="point"></span> recycling reward points currently</p>
+  </div>
+
+  <!-- Tabs navs -->
+  <div id="tab-navs">
+    <nav>
+      <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+        <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button"
+          role="tab" aria-controls="nav-home" aria-selected="true">Level 1 Rewards</button>
+        <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button"
+          role="tab" aria-controls="nav-profile" aria-selected="false">Level 2 Rewards</button>
+        <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button"
+          role="tab" aria-controls="nav-contact" aria-selected="false">Level 3 Rewards</button>
       </div>
+    </nav>
+    <div class="tab-content py-4" id="nav-tabContent">
+      <div class="tab-pane fade show active d-flex justify-content-evenly" id="nav-home" role="tabpanel"
+        aria-labelledby="nav-home-tab" tabindex="0">
+        <div class="level-1">
+          <div id="level-1-go-here" class="row row-cols-auto">
+            <div class="card py-2 mx-2" style="width: 18rem">
+              <img id="emoji-1" class="card-image card-img-top" src="" alt="emoji_1" />
+              <div class="card-body">
+                <h5 class="card-title">Emoji #1</h5>
+                <p class="card-length">Cute Emoji from LocalEco (Required points: 500)</p>
+                <br />
+                <div class="progress my-3">
+                  <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" style="width: 75%"></div>
+                </div>
+                <a class="btn btn-primary card-href">Claim Reward</a>
+              </div>
+            </div>
 
-      <div class="time-count">
-        <p>It took you 30 seconds to help the world</p>
-      </div>
-
-      <div class="rewards">
-        <div class="message">
-          <p> Keep Recycling to claim more special rewards</p>
+            <div class="card py-2 mx-2" style="width: 18rem">
+              <img id="emoji-2" class="card-image card-img-top" src="" alt="emoji_2" />
+              <div class="card-body">
+                <h5 class="card-title">Emoji #2</h5>
+                <p class="card-length">Cute Emoji from LocalEco (Required points: 500)</p>
+                <br />
+                <div class="progress my-3">
+                  <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" style="width: 75%"></div>
+                </div>
+                <a class="btn btn-primary card-href">Claim Reward</a>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
+    </div>
 
-        <div class="reward-container">
-          <div class="vl"></div>
+    <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" tabindex="0">
+      <div class="level-2">
+        <div id="level-2-go-here" class="row row-cols-auto">
+        </div>
+      </div>
+    </div>
 
-          <div class="reward reward-a">
-            <span class="material-symbols-outlined">redeem</span>
-            <p>1 / <span>10</span> recycling</p>
-            <p>Reward A &#9829;</p>
-          </div>
-
-          <div class="reward reward-b">
-            <span class="material-symbols-outlined">redeem</span>
-            <p>1 / <span>30</span> recycling</p>
-            <p>Reward C &#9829;</p>
-          </div>
-
-          <div class="reward reward-c">
-            <span class="material-symbols-outlined">redeem</span>
-            <p>1 / <span>20</span> recycling</p>
-            <p>Reward B &#9829;</p>
-          </div>
-
-          <div class="reward reward-d">
-            <span class="material-symbols-outlined">redeem</span>
-            <p>1 / <span>40</span> recycling</p>
-            <p>Reward D &#9829;</p>
-          </div>
-
-        </div> 
-
-        <p>~ More rewards to come in future ~</p>
+    <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab" tabindex="0">
+      <div class="level-3">
+        <div id="level-3-go-here" class="row row-cols-auto">
+        </div>
       </div>
     </div>
   </div>
+  </div>
+
 
   <nav id="footerPlaceholder"></nav>
 
