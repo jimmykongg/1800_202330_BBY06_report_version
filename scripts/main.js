@@ -6,7 +6,6 @@ function getNameFromAuth() {
             console.log(user.uid); //print the uid in the browser console
             console.log(user.displayName);  //print the user name in the browser console
             userName = user.displayName;
-            localStorage.setItem("userID", user.uid);
 
             //method #1:  insert with JS
             // document.getElementById("name-goes-here").innerText = userName;    
