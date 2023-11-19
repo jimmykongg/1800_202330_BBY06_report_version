@@ -69,16 +69,19 @@ async function readJSONbin() {
 
 document.getElementById("first-location").addEventListener("click", function (event) {
     window.location.href = "./map.html";
+    localStorage.setItem("docID", "6aKItibiBjY2cDWrA89u");
 });
 localStorage.setItem("docID1", "6aKItibiBjY2cDWrA89u");
 
 document.getElementById("second-location").addEventListener("click", function (event) {
     window.location.href = "./map.html";
+    localStorage.setItem("docID", "EKck6GUBPubHSrBZ6v8f");
 });
 localStorage.setItem("docID2", "EKck6GUBPubHSrBZ6v8f");
 
 document.getElementById("third-location").addEventListener("click", function (event) {
     window.location.href = "./map.html";
+    localStorage.setItem("docID", "EkvT4ux1fSxodGsX89Z8");
 });
 localStorage.setItem("docID3", "EkvT4ux1fSxodGsX89Z8");
 
