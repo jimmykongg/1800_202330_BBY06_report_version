@@ -719,7 +719,7 @@ button.btn:hover {
 .fact-of-the-day-container {
   display: inline-flex;
   flex-direction: column;
-  margin-top: 12.5vw;
+  margin-top: 0.5em;
   margin-bottom: 1vh;
   box-shadow: 2px 2px 7px 2px rgba(0, 0, 0, 0.2);
 }
