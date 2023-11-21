@@ -11,7 +11,10 @@ function doAll() {
     }
   });
 }
-doAll();
+
+document.addEventListener("DOMContentLoaded", (event) => {
+  doAll();
+});
 
 // Displays user's first name to improve personal experience
 function insertFirstName(user) {
