@@ -330,10 +330,13 @@ function createButton() {
   let referenceNode = document.getElementById("accordionFlush");
   let newNode = document.createElement("div");
   newNode.setAttribute("class", "position-relative mb-3");
-  newNode.innerHTML = "<button type='button' id='recycle-btn' class='btn btn-outline-success position-absolute top-0 start-50 translate-middle'><a href='./rewards.html'>Start Recycling</a></button>";
-
+  newNode.innerHTML = `<button type="button" onclick="location.href='./rewards.html'" class="btn btn-outline-success position-absolute top-0 start-50 translate-middle">Start Recycling</button>`;
   parentNode.insertBefore(newNode, referenceNode);
 }
+
+
+
+
 
 
 
