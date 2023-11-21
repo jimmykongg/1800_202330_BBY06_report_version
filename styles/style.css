@@ -431,7 +431,6 @@ button.btn:hover {
 
 .breadcrumb {
   margin-top: 5vh;
-  margin-left: vh;
 }
 
 .logout-btn {
@@ -491,11 +490,11 @@ button.btn:hover {
   height: 30vh;
 }
 
-.nav-tabs {
+#tab-navs .nav-tabs {
   font-size: 0.75em;
 }
 
-.card {
+#tab-navs .card {
   display: grid;
   grid-template-rows: 1fr 1fr;
   grid-template-columns: 1fr;
@@ -513,7 +512,7 @@ button.btn:hover {
   grid-area: card2;
 }
 
-.card-body {
+#tab-navs .card-body {
   width: 70vw;
   height: 100%;
   font-size: 1.1em;
@@ -573,6 +572,10 @@ button.btn:hover {
   color: black;
 }
 
+#history-section {
+  margin-top: 1.5vh;
+}
+
 /*
  * END OF Profile page CSS (Jimmy) ---------------------------------------------
  */
@@ -600,7 +603,6 @@ button.btn:hover {
   color: rgb(223, 96, 76);
   font-weight: bold;
 }
-
 #black {
   font-size: 1.1em;
   font-weight: bold;
@@ -623,7 +625,73 @@ button.btn:hover {
 }
 
 /*
- * END OF Map page CSS (Jimmy) ---------------------------------------------
+ * END OF Map page (Jimmy) ---------------------------------------------
+ */
+
+/*
+ * START OF History page (Jimmy)
+ */
+
+.history-card {
+  width: 90%;
+  margin: 0 auto 2vh auto;
+
+}
+
+#history-page-title {
+  width: 100%;
+  font-size: 1.8rem;
+}
+
+#btns-group {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  margin-bottom: 4vh;
+  margin-top: 4vh;
+}
+
+.option {
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr 1fr;
+}
+
+.option-text {
+  grid-row: 1 / span 1;
+  grid-column: 1 /span 1;
+  text-align: right;
+  padding-top: 1vh;
+  padding-right: 1vw;
+}
+
+.option-btn {
+  grid-row: 1 / span 1;
+  grid-column: 2 / span 1;
+  width: 90%;
+  max-height: 4vh;
+  padding: 1vh auto;
+}
+
+.option-menu li{
+  text-align: center;
+  padding-top: 0.75vh;
+  padding-bottom: 0.75vh;
+}
+
+.option-menu li:hover{
+  cursor: pointer;
+}
+
+.option-menu li:nth-last-of-type(n+2){
+  border-bottom: 1px grey solid;
+}
+
+#sort-options {
+  display: block;
+}
+/*
+ * END OF History page (Jimmy)
  */
 
 /* START OF Title Page CSS ------------------------------------------- */

@@ -8,7 +8,7 @@ function insertNameFromFirestore() {
         if (user) {
             console.log(user.uid); // Let's know who the logged-in user is by logging their UID
             currentUser = db.collection("users").doc(user.uid); // Go to the Firestore document of the user
-            currentUser.get().then(userDoc => {
+            currentUser.onSnapshot(userDoc => {
                 // Get the user name
                 var userName = userDoc.data().name;
                 console.log(userName);
@@ -29,8 +29,9 @@ function insertEmailFromFirestore() {
         if (user) {
             console.log(user.uid);
             currentUser = db.collection("users").doc(user.uid);
-            currentUser.get().then(userDoc => {
+            currentUser.onSnapshot(userDoc => {
                 var userEmail = userDoc.data().email;
+                console.log(userEmail);
                 document.getElementById("email-goes-here").innerText = userEmail;
             })
         } else {
@@ -47,7 +48,7 @@ function insertCountryFromFirestore() {
         if (user) {
             console.log(user.uid);
             currentUser = db.collection("users").doc(user.uid);
-            currentUser.get().then(userDoc => {
+            currentUser.onSnapshot(userDoc => {
                 var userCountry = userDoc.data().country;
                 document.getElementById("country-goes-here").innerText = userCountry;
             })

@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Main Page</title>
+  <title>LocalEco · Recycling History</title>
   <meta name="comp1800 template" content="My 1800 App">
 
   <!-- Required meta tags -->
@@ -45,23 +45,49 @@
   <!------------------------------>
   <!-- Your HTML Layout go here -->
   <!------------------------------>
-  
-  <div class="py-3 my-4 text-center"> 
-    <h1 class="display-4 fw-bold">Account</h1>
-    <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
-    </nav>
 
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item" onclick="location.href='/profile.html'"><span class="material-icons">settings</span> Profile</li>
-      <li class="list-group-item" onclick="location.href='/history.html'"><span class="material-icons">history</span>Recycling History</li>
-      <li class="list-group-item" id=""><span class="material-icons">notifications</span> Notifications</li>
-      <li class="list-group-item" onclick="location.href='/language.html'"><span class="material-icons">language</span> Langauge</li> 
-    </ul>
-    
-    <div class="logout-btn">
-      <button type="button" class="btn btn-outline-danger">Logout</button>
+  <div class="py-3 my-4 text-center" id="historyCardGroup">
+    <h1 class="display-4 fw-bold" id="history-page-title"><span id="name-goes-here"></span>'s Recycling History</h1>
+
+    <div id="btns-group">
+      <div class ="option" id="sort-btn">
+        <p class="option-text">Sorted by: </p>
+        <button class="btn btn-secondary btn-sm dropdown-toggle bg-success option-btn" id="sort-options"type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Sorted options
+        </button>
+        <ul class="dropdown-menu option-menu">
+          <li onclick="displaySortedHistories('street', 'asc')">Street Name (A-Z)</li>
+          <li onclick="displaySortedHistories('street', 'desc')">Street Name (Z-A)</li>
+          <li onclick="displaySortedHistories('last_visited', 'asc')">Most recently</li>
+        </ul>
+      </div>
+      
+      <div class="option" id="time-btn">
+        <p class="option-text">Shown: </p>
+        <button class="btn btn-secondary btn-sm dropdown-toggle bg-success option-btn" id="show-options" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Number of record
+        </button>
+        <ul class="dropdown-menu option-menu">
+          <li>2</li>
+          <li>5</li>
+          <li>20</li>
+        </ul>
+      </div>
     </div>
+
   </div>
+
+  <!-- Templates for general use, not displayed -->
+  <template id="historyTemplate">
+    <div class="card history-card">
+      <div class="card-body">
+        <h5 class="card-title">Street name</h5>
+      </div>
+      <div class="card-footer text-muted card-last-visited">
+        ... ago
+      </div>
+    </div>
+  </template>
 
   <nav id="footerPlaceholder"></nav>
 
@@ -103,7 +129,7 @@
   <!---------------------------------------------->
   <script src="./scripts/firebaseAPI_BBY06.js"></script>
   <script src="./scripts/skeleton.js"></script>
-  <script src="./scripts/account.js"></script>
+  <script src="./scripts/history.js"></script>
 
 </body>
 

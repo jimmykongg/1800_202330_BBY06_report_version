@@ -29,8 +29,17 @@ function updateUserInfo() {
   })
 }
 
+function updateLastVisted() {
+  db.collection("bins").doc(localStorage.getItem("docID")).update({
+    last_visited: firebase.firestore.FieldValue.serverTimestamp()
+  }).then(() => {
+    console.log("Time updated successfully");
+  })
+}
+
 document.addEventListener("DOMContentLoaded", (event) => {
   updateUserInfo();
+  updateLastVisted();
 });
 
 //--------------------------------------------------------------------
