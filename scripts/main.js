@@ -8,7 +8,7 @@ function getNameFromAuth() {
             userName = user.displayName;
 
             //method #1:  insert with JS
-            document.getElementById("name-goes-here").innerText = userName;    
+            document.getElementById("name-goes-here").innerText = userName;
 
             //method #2:  insert using jquery
             //$("#name-goes-here").text(userName); //using jquery
@@ -21,4 +21,31 @@ function getNameFromAuth() {
         }
     });
 }
+
+function getDailyFact() {
+    const today = new Date().getDate();
+    let random;
+    db.collection("facts").get().then(factDoc => {
+        const numberOfFacts = factDoc.size;
+        random = Math.floor(Math.random() * numberOfFacts);
+        if (localStorage.getItem("dailyFact") == null) {
+            readFact("fact" + random);
+        }
+        if (today != localStorage.getItem("dateRecorded")) {
+            readFact("fact" + random);
+            localStorage.setItem("dateRecorded", today);
+        }
+        document.getElementById("daily-fact-goes-here").innerHTML = localStorage.getItem("dailyFact");
+    })
+}
+
+function readFact(data) {
+    db.collection("facts").doc(data)
+        .onSnapshot(factsDoc => {
+            document.getElementById("daily-fact-goes-here").innerHTML = factsDoc.data().quote;
+            localStorage.setItem("dailyFact", factsDoc.data().quote);
+        })
+}
+
+getDailyFact();
 getNameFromAuth(); //run the function

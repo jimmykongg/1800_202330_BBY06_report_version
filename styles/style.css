@@ -1,4 +1,5 @@
-html, body{
+html,
+body {
   overflow-x: hidden;
   overflow-y: scroll;
 }
@@ -7,7 +8,7 @@ html, body{
  * START OF Footer Navbar (Jimmy)
  */
 
-div > .locate {
+div>.locate {
   padding: 0;
   float: right;
   margin-top: 65vh;
@@ -17,7 +18,7 @@ div > .locate {
 a {
   text-decoration: none;
   color: #828358;
- }
+}
 
 a:hover {
   color: black;
@@ -66,12 +67,12 @@ a:hover {
   width: 100vw;
 }
 
-h1.display-4.fw-bold{
+h1.display-4.fw-bold {
   color: #BCD39C;
 }
 
-p.lead.mb-4{
-  color:#8E8358;
+p.lead.mb-4 {
+  color: #8E8358;
 }
 
 button.btn {
@@ -83,15 +84,15 @@ button.btn {
   margin: 3px 2px;
   cursor: pointer;
   transition-duration: 1s;
-  
+
 }
 
-button.btn:hover{
+button.btn:hover {
   background-color: #a6fadb;
 }
 
-.material-icons.md-60 { 
-  font-size: 40px; 
+.material-icons.md-60 {
+  font-size: 40px;
 }
 
 .icon-text {
@@ -102,17 +103,17 @@ button.btn:hover{
 
 .material-symbols-outlined {
   font-variation-settings:
-  'FILL' 0,
-  'wght' 400,
-  'GRAD' 0,
-  'opsz' 24;
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24;
   font-size: 40pt;
   color: black;
 }
 
 .material-symbols-outlined.filled {
-  font-variation-settings: 
-  'FILL' 1;
+  font-variation-settings:
+    'FILL' 1;
 }
 
 .material-symbols-outlined.search-bar {
@@ -124,13 +125,13 @@ button.btn:hover{
   position: absolute;
   top: 10%;
   right: 6%;
-  font-variation-settings: 
-  'FILL' 0;
+  font-variation-settings:
+    'FILL' 0;
   font-size: 30pt;
 }
 
 .material-symbols-outlined.recycle-items {
-  position:absolute;
+  position: absolute;
   margin-top: 2%;
   top: 0;
   left: 5%;
@@ -139,7 +140,7 @@ button.btn:hover{
 
 .material-symbols-outlined.navigate {
   font-size: 25pt;
-  position:absolute;
+  position: absolute;
   top: 7%;
   right: 5%;
 }
@@ -156,7 +157,7 @@ button.btn:hover{
 }
 
 .search input[type=text] {
-  border: 1px solid #ccc;  
+  border: 1px solid #ccc;
   background-color: rgba(162, 162, 162, 0.2);
   border-radius: 15px;
   width: 65vw;
@@ -183,7 +184,7 @@ button.btn:hover{
   box-shadow: 3px 5px rgba(162, 162, 162, 0.2);
 }
 
-.location > .types {
+.location>.types {
   display: block;
   position: absolute;
   top: 5%;
@@ -198,7 +199,7 @@ button.btn:hover{
   cursor: pointer;
 }
 
-.location > img {
+.location>img {
   position: absolute;
   top: 20%;
   left: 3%;
@@ -209,7 +210,7 @@ button.btn:hover{
   object-fit: cover;
 }
 
-.location > #title {
+.location>#title {
   position: absolute;
   top: 20%;
   left: 18%;
@@ -224,21 +225,21 @@ button.btn:hover{
 
 .location.info {
   position: absolute;
-  bottom:0;
+  bottom: 0;
   height: 50%;
   border-radius: 0 0 20px 20px;
   background-color: white;
   box-shadow: none;
 }
 
-.location.info > .description {
+.location.info>.description {
   font-size: 13pt;
   position: absolute;
   top: 6%;
   left: 15%;
 }
 
-.location.info > .distance {
+.location.info>.distance {
   font-size: 10pt;
   font-weight: bold;
   position: absolute;
@@ -246,7 +247,7 @@ button.btn:hover{
   right: 4%;
 }
 
-.header{
+.header {
   background-image: URL("../images/SE06.jpg");
   background-size: cover;
   background-position: bottom;
@@ -263,10 +264,10 @@ button.btn:hover{
   bottom: 3vh;
 }
 
-.title-container .title{
+.title-container .title {
   margin-left: 10vw;
   margin-bottom: 0;
-  font-weight:bolder;
+  font-weight: bolder;
   font-size: 20pt;
   color: white;
 }
@@ -370,7 +371,7 @@ button.btn:hover{
   box-shadow: 3px 5px rgba(162, 162, 162, 0.2);
 }
 
-.fact > img {
+.fact>img {
   position: absolute;
   top: 10%;
   left: 3%;
@@ -380,7 +381,7 @@ button.btn:hover{
   object-fit: fill;
 }
 
-.fact > .title {
+.fact>.title {
   position: absolute;
   top: 10%;
   left: 18%;
@@ -402,14 +403,14 @@ button.btn:hover{
   box-shadow: none;
 }
 
-.fact.info > .description {
+.fact.info>.description {
   font-size: 12pt;
   position: absolute;
   top: 6%;
   left: 5vw;
 }
 
-.fact > img.glass {
+.fact>img.glass {
   width: 5vw;
   left: 6%;
   top: 13%;
@@ -447,7 +448,7 @@ button.btn:hover{
  * Reference: https://codepen.io/superjaberwocky/pen/rLKxOa
  */
 
- .callout {
+.callout {
   padding: 1vh;
   margin: 1vh 0;
   border: 1px solid #eee;
@@ -564,11 +565,11 @@ button.btn:hover{
 }
 
 .card-header {
-  background: rgb(2,0,36);
-  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(163,249,89,1) 0%, rgba(0,212,255,1) 100%);
+  background: rgb(2, 0, 36);
+  background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(163, 249, 89, 1) 0%, rgba(0, 212, 255, 1) 100%);
 }
 
-.vh-100 h5{
+.vh-100 h5 {
   color: black;
 }
 
@@ -625,22 +626,53 @@ button.btn:hover{
  * END OF Map page CSS (Jimmy) ---------------------------------------------
  */
 
- /* START OF Title Page CSS ------------------------------------------- */
- 
- .main-body {
+/* START OF Title Page CSS ------------------------------------------- */
+
+.main-body {
   display: flex;
   flex-direction: column;
   justify-content: center;
- }
+}
 
- .main-body .title {
+.main-body .title {
   font-size: 26pt;
   font-weight: bold;
   text-align: center;
- }
+}
 
- .main-body > .content {
+.main-body>.content {
+  display: flex;
+  flex-direction: column;
   border: none;
   width: 100vw;
   margin-top: 5vh;
- }
+}
+
+.fact-of-the-day-container {
+  display: inline-flex;
+  flex-direction: column;
+  margin-top: 12.5vw;
+  margin-bottom: 1vh;
+  box-shadow: 2px 2px 7px 2px rgba(0, 0, 0, 0.2);
+}
+
+.fact-of-the-day-container>h5 {
+  text-align: center;
+  font-weight: bold;
+  color: #63C132;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.fact-of-the-day-container>.dailyFact {
+  text-align: center;
+}
+
+.main-icon-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 3vh;
+}
+
+.main-icon-container > img {
+  width: 25vw;
+}
