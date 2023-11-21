@@ -677,3 +677,23 @@ width:90%;
 /*
  * END OF Map page CSS (Jimmy) ---------------------------------------------
  */
+
+ /* START OF Title Page CSS ------------------------------------------- */
+ 
+ .main-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+ }
+
+ .main-body .title {
+  font-size: 26pt;
+  font-weight: bold;
+  text-align: center;
+ }
+
+ .main-body > .content {
+  border: none;
+  width: 100vw;
+  margin-top: 5vh;
+ }

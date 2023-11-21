@@ -47,48 +47,62 @@
     <!------------------------------>
     <nav id="headerPlaceHolder"></nav>
 
-    <div>
-        <div class="search">
-            <input type="text" placeholder=" Search">
+    <div class="main-body">
+        <div class="title">
+            <span>Welcome to Local Eco, <span id="name-goes-here"></span>!</span>
         </div>
-        <span class="material-symbols-outlined locate">location_searching</span>
+        <div class="content">
+            <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+                        aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                        aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                        aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <a href="https://www.wastedive.com/news/america-recycles-day-2023-biden-proclamation-recycling-epa/699893/">
+                            <img src="./images/joe_biden.jpg" class="d-block w-100" alt="Joe Biden Image">
+                        </a>                        
+                        <div class="carousel-caption d-md-block">
+                            <p style="font-size: 10pt; position:absolute; bottom: 0;">Biden touts recycling's 'critical role' in fighting climate change.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <a href="https://www.wastedive.com/news/wm-tara-hemmer-recycling-investments-sustainability/699455/">
+                            <img src="./images/interview.jpg" class="d-block w-100" alt="Interview Image">
+                        </a>
+                        <div class="carousel-caption d-md-block">
+                            <p style="font-size: 10pt; position:absolute; bottom: 0;">Some representative placeholder content for the second slide.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <a href="https://www.wastedive.com/news/epa-environmental-justice-grants-waste-recycling-dumping-community/697601/">
+                            <img src="./images/epa_report.jpg" class="d-block w-100" alt="Man Speaking Image">
+                        </a>
+                        <div class="carousel-caption d-md-block">
+                            <p style="font-size: 10pt; position:absolute; bottom: 0;">EPA pours $128M into environmental justice projects, including waste and recycling efforts.</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+
     </div>
 
     <nav id="footerPlaceholder"></nav>
-
-    <!-- <footer>
-        <div class="navbar justify-content-between fixed-bottom" id="navbar">
-            <div class="container">
-                <div class="center">
-                    <a href="#">
-                        <span class="material-icons md-60">home</span>
-                        <p class="icon-text">Home</p>
-                    </a>
-                </div>
-
-                <div class="center">
-                    <a href="search.html">
-                        <span class="material-icons md-60">search</span>
-                        <p class="icon-text">Search</p>
-                    </a>
-                </div>
-
-                <div class="center">
-                    <a href="#">
-                        <span class="material-icons md-60">feed</span>
-                        <p class="icon-text">News</p>
-                    </a>
-                </div>
-
-                <div class="center">
-                    <a href="#">
-                        <span class="material-icons md-60">person</span>
-                        <p class="icon-text">Account</p>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </footer> -->
     <!---------------------------------------------->
     <!-- Your own JavaScript functions go here    -->
     <!---------------------------------------------->

@@ -1,10 +1,4 @@
-function readFact(fact) {
-    db.collection("facts").doc(fact)
-        .onSnapshot(factDoc => {
-            console.log("Current document data: " + factDoc.data());
-            document.getElementById(fact + "-goes-here").innerHTML = factDoc.data().quote;
-        })
-}
+
 
 function createFacts() {
     const outerDiv = document.querySelector(".facts-body");
@@ -12,7 +6,6 @@ function createFacts() {
     db.collection("facts").get().then((querySnapshot) => {
         var numOfFacts = querySnapshot.size;
         console.log("Amount of documents in collection: " + numOfFacts);
-
         const containers = [];
         const facts = [];
         const descriptions = [];
