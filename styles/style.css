@@ -59,7 +59,6 @@ a:hover {
   color: gray;
   font-weight: none;
   margin-left: 7vw;
-  padding-bottom: 2vh;
 }
 
 #content {
@@ -79,12 +78,10 @@ button.btn {
   background-color: #13b076;
   border: none;
   color: white;
-  padding: 10px 24px;
+  padding: 5px 24px;
   text-decoration: none;
-  margin: 3px 2px;
   cursor: pointer;
   transition-duration: 1s;
-
 }
 
 button.btn:hover {
@@ -161,6 +158,65 @@ button.btn:hover {
 
 .search-title {
   margin-left: 10vw;
+}
+
+/* Hide the dropdown content by default */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: fit-content;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Style the dropdown button */
+.dropdown-button {
+  background-color: gray;
+  border-radius: 5px;
+  color: white;
+  min-width: fit-content;
+  font-size: 12pt;
+  border: none;
+  cursor: pointer;
+}
+
+/* Show dropdown content when hovering over the button */
+
+/* .dropdown-button:hover + .dropdown-content {
+  display: block;
+} */
+
+/* Dropdown selection decoration */
+.dropdown-content span {
+  padding: 1em 1.2em 0.5em 1.2em;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content span:hover {
+  cursor: pointer;
+  background-color: #888888;
+}
+
+.dropdown-content a:active {
+  background-color: #888888;
+}
+
+/* Adjust input style in the dropdown */
+.dropdown-content input[type="text"] {
+  width: 83px;
+  height: 20px;
+  padding: 1em;
+  margin: 0;
+}
+
+.dropdown-content .sort {
+  border: none;
+  width: 83px;
+  background-color: #358600;
+  color: white;
 }
 
 .location-container {
@@ -607,6 +663,7 @@ button.btn:hover {
   color: rgb(223, 96, 76);
   font-weight: bold;
 }
+
 #black {
   font-size: 1.1em;
   font-weight: bold;
@@ -677,23 +734,24 @@ button.btn:hover {
   padding: 1vh auto;
 }
 
-.option-menu li{
+.option-menu li {
   text-align: center;
   padding-top: 0.75vh;
   padding-bottom: 0.75vh;
 }
 
-.option-menu li:hover{
+.option-menu li:hover {
   cursor: pointer;
 }
 
-.option-menu li:nth-last-of-type(n+2){
+.option-menu li:nth-last-of-type(n+2) {
   border-bottom: 1px grey solid;
 }
 
 #sort-options {
   display: block;
 }
+
 /*
  * END OF History page (Jimmy)
  */
@@ -745,6 +803,6 @@ button.btn:hover {
   margin-top: 3vh;
 }
 
-.main-icon-container > img {
+.main-icon-container>img {
   width: 25vw;
 }

@@ -52,21 +52,25 @@
     <!-- Your HTML Layout go here -->
     <!------------------------------>
     <nav id="headerPlaceHolder"></nav>
-    <div>
+    <div style="padding-bottom: 10vh;">
         <!-- Put the map placeholder here.-->
         <header class="search-title">
             <div>
                 <span class="material-symbols-outlined filled" style="font-size: 20pt;">near_me</span>
                 <span id="heading">BCIT Campus, Burnaby</span>
-                <span id="description">Within 200m</span>
+                <div id="description">
+                    <i class="fa-solid fa-filter fa-2xl" style="padding-right: 1vw;"></i>
+                    <button class="dropdown-button">None</button>
+                    <div class="dropdown-content">
+                        <span id="hundred">100m</span>
+                        <span id="fiveHundred">500m</span>
+                        <span id="kilometer">1km</span>
+                        <input type="text" id="range" name="Custom Range" placeholder="Custom">
+                        <button class="sort" onclick=customSort()>Sort!</button>
+                    </div>
+                </div>
             </div>
         </header>
-        <div class="search">
-            <input type="text" placeholder="  Search" style="width: 80vw;">
-        </div>
-        <!-- <p>Type or search for your address here.</p>
-        <div id="geocoder"></div>
-        <div id="result"></div> -->
         <div class="searchList"></div>
 
     </div>

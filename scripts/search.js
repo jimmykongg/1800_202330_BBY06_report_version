@@ -256,7 +256,7 @@ function sortDivs() {
     var overallDiv = document.querySelector('.searchList');
     var outerDiv = document.querySelectorAll('.location-container');
     var divsToSort = [];
-    
+
     for (let i = 0; i < outerDiv.length; i++) {
         divsToSort.push(outerDiv[i]);
     }
@@ -274,6 +274,150 @@ function sortDivs() {
     sortedDivs.forEach(function (div) {
         overallDiv.appendChild(div);
     });
+
+    localStorage.setItem('filter', 'None');
+}
+
+// Reads the custom range input
+function customSort() {
+    var overallDiv = document.querySelector('.searchList');
+    const input = document.getElementById('range');
+    var inputValue = input.value;
+    localStorage.setItem("filter", inputValue);
+    updateButtonText();
+
+    if (/(?<!m)km/.test(input.value)) {
+        inputValue = input.value.split('').filter(char => !"km".includes(char)).join('');
+        inputValue *= 1000;
+    } else if (/^(?!.*\bkm\b).*m.*$/.test(input.value)) {
+        inputValue = input.value.split('').filter(char => !"m".includes(char)).join('');
+    }
+
+    var outerDiv = document.querySelectorAll('.location-container');
+    var divsToSort = [];
+    var filteredDivs = [];
+
+    for (let i = 0; i < outerDiv.length; i++) {
+        divsToSort.push(outerDiv[i]);
+    }
+
+    divsToSort = divsToSort.forEach(div => {
+        if (/(?<!m)km/.test(div.querySelector('.sort').innerHTML)) {
+            var distance = div.querySelector('.sort').innerHTML.split('').filter(char => !"km".includes(char)).join('');
+            distance *= 1000;
+            if (distance <= inputValue) {
+                filteredDivs.push(div);
+            }
+        }
+        if (/(m!km)/.test(div.querySelector('.sort').innerHTML)) {
+            var distance = div.querySelector('.sort').innerHTML.split('').filter(char => !"m".includes(char)).join('');
+            if (distance <= inputValue) {
+                filteredDivs.push(div);
+            }
+        }
+    })
+
+    var sortedDivs = Array.from(filteredDivs).sort(function (a, b) {
+        var valueA = parseInt(a.querySelector('.sort').textContent);
+        var valueB = parseInt(b.querySelector('.sort').textContent);
+        return valueA - valueB;
+    });
+
+    // Clear the outer div
+    overallDiv.innerHTML = '';
+
+    // Append the sorted divs
+    sortedDivs.forEach(function (div) {
+        overallDiv.appendChild(div);
+    });
+
+}
+
+// Listens for a click off screen to hide the menu
+document.addEventListener('click', function (e) {
+
+    // Defining all selectors
+    var dropdown = document.querySelector('.dropdown-button');
+    var dropdownContent = document.querySelector('.dropdown-content');
+    var customInput = document.querySelector('#range');
+    var oneHundred = document.querySelector('#hundred');
+    var fiveHundred = document.querySelector('#fiveHundred');
+    var kilometer = document.querySelector('#kilometer');
+    var inputValue;
+
+    // Support Function that will reorganize the divs
+    function presetSort() {
+
+        var overallDiv = document.querySelector(".searchList");
+        var outerDiv = document.querySelectorAll('.location-container');
+        var divsToSort = [];
+        var filteredDivs = [];
+
+        for (let i = 0; i < outerDiv.length; i++) {
+            divsToSort.push(outerDiv[i]);
+        }
+
+        divsToSort = divsToSort.forEach(div => {
+            if (/(?<!m)km/.test(div.querySelector('.sort').innerHTML)) {
+                var distance = div.querySelector('.sort').innerHTML.split('').filter(char => !"km".includes(char)).join('');
+                distance *= 1000;
+                if (distance <= inputValue) {
+                    filteredDivs.push(div);
+                }
+            }
+            if (/(m!km)/.test(div.querySelector('.sort').innerHTML)) {
+                var distance = div.querySelector('.sort').innerHTML.split('').filter(char => !"m".includes(char)).join('');
+                if (distance <= inputValue) {
+                    filteredDivs.push(div);
+                }
+            }
+        })
+
+        var sortedDivs = Array.from(filteredDivs).sort(function (a, b) {
+            var valueA = parseInt(a.querySelector('.sort').textContent);
+            var valueB = parseInt(b.querySelector('.sort').textContent);
+            return valueA - valueB;
+        });
+
+        // Clear the outer div
+        overallDiv.innerHTML = '';
+
+        // Append the sorted divs
+        sortedDivs.forEach(function (div) {
+            overallDiv.appendChild(div);
+        });
+    }
+
+    switch (e.target) {
+        case (oneHundred):
+            inputValue = 100;
+            localStorage.setItem("filter", inputValue + "m")
+            presetSort();
+            break;
+        case (fiveHundred):
+            inputValue = 500;
+            localStorage.setItem("filter", inputValue + "m");
+            presetSort();
+            break;
+        case (kilometer):
+            inputValue = 1000;
+            localStorage.setItem("filter", inputValue + "m");
+            presetSort();
+            break;
+    }
+
+    updateButtonText();
+
+    if (e.target == customInput || e.target == dropdown) {
+        dropdownContent.style.display = 'flex';
+    } else {
+        dropdownContent.style.display = 'none';
+    }
+});
+
+function updateButtonText() {
+    var button = document.querySelector(".dropdown-button");
+    button.innerHTML = localStorage.getItem("filter");
 }
 
 createLocations();
