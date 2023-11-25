@@ -31,23 +31,42 @@ function readLocation(location) {
 
 function createHeader() {
     const outerDiv = document.querySelector(".header");
-    db.collection("locations").doc(localStorage.getItem("location"))
+    db.collection("bins").doc(localStorage.getItem('docID'))
         .onSnapshot(titleDoc => {
             const newDiv = document.createElement("div");
             const header = document.createElement("nav");
-            header.id = "headerPlaceHolder";
+            header.setAttribute('id', 'headerPlaceHolder');
 
             newDiv.classList.add("title-container");
 
             newDiv.innerHTML ='<p class="title" id="title-goes-here"></p><p class="title" id="location-goes-here"></p>';
             outerDiv.appendChild(header);
             outerDiv.appendChild(newDiv);
-            document.getElementById("title-goes-here").innerHTML = titleDoc.data().title;
-            document.getElementById("location-goes-here").innerHTML = titleDoc.data().street;
-            outerDiv.style.backgroundImage = "url('./images/" + localStorage.getItem("location") + ".jpg')";
+            document.getElementById("title-goes-here").innerHTML = titleDoc.data().street;
+            document.getElementById("location-goes-here").innerHTML = titleDoc.data().city + ", " + titleDoc.data().province + ", " + titleDoc.data().country;
             console.log($('#headerPlaceHolder').load('./text/header.html'));
         })
 }
+
+// function createHeader() {
+//     const outerDiv = document.querySelector(".header");
+//     db.collection("locations").doc(localStorage.getItem("location"))
+//         .onSnapshot(titleDoc => {
+//             const newDiv = document.createElement("div");
+//             const header = document.createElement("nav");
+//             header.id = "headerPlaceHolder";
+
+//             newDiv.classList.add("title-container");
+
+//             newDiv.innerHTML ='<p class="title" id="title-goes-here"></p><p class="title" id="location-goes-here"></p>';
+//             outerDiv.appendChild(header);
+//             outerDiv.appendChild(newDiv);
+//             document.getElementById("title-goes-here").innerHTML = titleDoc.data().title;
+//             document.getElementById("location-goes-here").innerHTML = titleDoc.data().street;
+//             outerDiv.style.backgroundImage = "url('./images/" + localStorage.getItem("location") + ".jpg')";
+//             console.log($('#headerPlaceHolder').load('./text/header.html'));
+//         })
+// }
 
 function createRecyclables() {
     const outerDiv = document.querySelector(".info");
@@ -110,8 +129,6 @@ function createNavigation() {
             divs.push(newDiv);
             items.push("directions_run");
             descriptions.push("50 meters away");
-            items.push("timer");
-            descriptions.push("30 seconds to get there")
         }
         document.getElementById("logo-goes-here-1").innerHTML = items[0];
         document.getElementById("logo-goes-here-2").innerHTML = items[1];

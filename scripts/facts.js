@@ -29,7 +29,7 @@ function createFacts() {
                     let sourceLink = factDoc.data().source;
                     let quote = factDoc.data().quote;
 
-                    newDiv.innerHTML = '<img src="' + imageLink + '"class="' + type + '"><span id="fact' + x + '-goes-here" class="title"></span><div class="fact info"><a href=' + sourceLink + ' class="description" target="_blank"><span>Source</span></a></div>';
+                    newDiv.innerHTML = '<img src="' + imageLink + '"class="' + type + '"><span id="fact' + x + '-goes-here" class="title"></span><div class="fact info"><a href=' + sourceLink + ' class="description" target="_blank"><span style="text-decoration: underline;">Source</span></a></div>';
                     innerDiv.appendChild(newDiv);
                     outerDiv.appendChild(innerDiv);
                     containers.push(newDiv);

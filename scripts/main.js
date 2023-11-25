@@ -47,5 +47,9 @@ function readFact(data) {
         })
 }
 
+document.querySelector(".fact-of-the-day-container").addEventListener("click", function() {
+    window.location.href = './facts.html';
+})
+
 getDailyFact();
 getNameFromAuth(); //run the function
