@@ -168,6 +168,7 @@ function createLocations() {
             moreInfo.innerHTML = "More Info";
             moreInfo.addEventListener('click', function () {
                 localStorage.setItem('docID', bin.id);
+                console.log(bin.id);
                 window.location.href = './search_info.html';
             })
 
