@@ -302,6 +302,7 @@ function customSort() {
     }
 
     divsToSort = divsToSort.forEach(div => {
+        var dist = div.querySelector('.sort').innerHTML
         if (/(?<!m)km/.test(div.querySelector('.sort').innerHTML)) {
             var distance = div.querySelector('.sort').innerHTML.split('').filter(char => !"km".includes(char)).join('');
             distance *= 1000;
@@ -309,7 +310,7 @@ function customSort() {
                 filteredDivs.push(div);
             }
         }
-        if (/(m!km)/.test(div.querySelector('.sort').innerHTML)) {
+        if (dist.includes("m") && !dist.includes("km")) {
             var distance = div.querySelector('.sort').innerHTML.split('').filter(char => !"m".includes(char)).join('');
             if (distance <= inputValue) {
                 filteredDivs.push(div);
