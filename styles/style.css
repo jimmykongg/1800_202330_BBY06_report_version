@@ -755,6 +755,56 @@ button.btn:hover {
  * END OF History page (Jimmy)
  */
 
+/*
+ * START OF Langauge page (Jimmy)
+ */
+
+ .language-title {
+  margin-bottom: 6vh;
+ }
+
+ .language p {
+  margin-top: 2vh;
+ }
+
+ 
+ .form-switch {
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 7fr 3fr;
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 5vh;
+  padding-bottom: 5vh;
+  border-bottom: 1px grey solid;
+ }
+
+.language .form-check-label {
+  grid-row: 1 / span 1;
+  grid-column: 1 / span 1;
+  height: 1.5vh;
+  width: 30vw;
+  margin-left: 5vw;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.language .form-check-input {
+  grid-row: 1 / span 1;
+  grid-column: 2 / span 1;
+  height: 3vh;
+  width: 15vw;
+  margin-top: 0.7vh;
+}
+
+.form-check-input:checked {
+  background-color: rgb(192, 210, 161);
+}
+
+/*
+ * END OF Langauge page (Jimmy)
+ */
+
 /* START OF Title Page CSS ------------------------------------------- */
 
 .main-body {

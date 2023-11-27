@@ -29,6 +29,11 @@ function updateUserInfo() {
   })
 }
 
+document.addEventListener("DOMContentLoaded", (event) => {
+  updateUserInfo();
+});
+
+
 //--------------------------------------------------------------------
 // Generate two random emoji images to users 
 // in order to encourage users to exchange emoji with others.  

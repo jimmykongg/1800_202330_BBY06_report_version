@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Main Page</title>
+  <title>Profile</title>
   <meta name="comp1800 template" content="My 1800 App">
 
   <!-- Required meta tags -->
@@ -45,22 +45,37 @@
   <!------------------------------>
   <!-- Your HTML Layout go here -->
   <!------------------------------>
-  
-  <div class="py-3 my-4 text-center"> 
-    <h1 class="display-4 fw-bold">Account</h1>
-    <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
-    </nav>
 
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item" onclick="location.href='/profile.html'"><span class="material-icons">settings</span> Profile</li>
-      <li class="list-group-item" onclick="location.href='/history.html'"><span class="material-icons">history</span>Recycling History</li>
-      <li class="list-group-item" id=""><span class="material-icons">notifications</span> Notifications</li>
-      <li class="list-group-item" onclick="location.href='/language.html'"><span class="material-icons">language</span> Langauges</li> 
-    </ul>
-    
-    <div class="logout-btn">
-      <button type="button" class="btn btn-outline-danger">Logout</button>
+  <div class="py-3 my-4 text-center language"> 
+    <h1 class="display-4 fw-bold language-title">Languages</h1>
+
+    <div class="form-check form-switch">
+        <input class="form-check-input language-switch" type="checkbox" role="switch" id="flexSwitchCheckEnglish" checked>
+        <label class="form-check-label" for="flexSwitchCheckEnglish">English</label>
     </div>
+
+    <div class="form-check form-switch">
+        <input class="form-check-input language-switch" type="checkbox" role="switch" id="flexSwitchCheckFrench">
+        <label class="form-check-label" for="flexSwitchCheckFrench">Français</label>
+    </div>
+
+    <div class="form-check form-switch">
+        <input class="form-check-input language-switch" type="checkbox" role="switch" id="flexSwitchCheckChinese">
+        <label class="form-check-label" for="flexSwitchCheckChinese">繁體中文</label>
+    </div>
+
+    <div class="form-check form-switch">
+        <input class="form-check-input language-switch" type="checkbox" role="switch" id="flexSwitchCheckJapanese">
+        <label class="form-check-label" for="flexSwitchCheckJapanese">日本語</label>
+    </div>
+
+    <div class="form-check form-switch">
+        <input class="form-check-input language-switch" type="checkbox" role="switch" id="flexSwitchCheckKorean">
+        <label class="form-check-label" for="flexSwitchCheckKorean">한국어</label>
+    </div>
+
+    <p>*Language is supported on the main page only at this version</p>
+
   </div>
 
   <nav id="footerPlaceholder"></nav>
@@ -103,7 +118,7 @@
   <!---------------------------------------------->
   <script src="./scripts/firebaseAPI_BBY06.js"></script>
   <script src="./scripts/skeleton.js"></script>
-  <script src="./scripts/account.js"></script>
+  <script src="./scripts/language.js"></script>
 
 </body>
 
