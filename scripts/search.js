@@ -157,7 +157,8 @@ function createLocations() {
             innermostDiv.setAttribute('class', 'location info');
             innermostDiv.setAttribute('id', binID);
             innermostDiv.addEventListener('click', function () {
-                localStorage.setItem('docID', binDoc);
+                localStorage.setItem("docID", bin.id);
+                console.log(localStorage.getItem("docID"))
                 window.location.href = "./map.html";
             })
 
@@ -168,7 +169,7 @@ function createLocations() {
             moreInfo.innerHTML = "More Info";
             moreInfo.addEventListener('click', function () {
                 localStorage.setItem('docID', bin.id);
-                console.log(bin.id);
+                console.log(binDoc);
                 window.location.href = './search_info.html';
             })
 

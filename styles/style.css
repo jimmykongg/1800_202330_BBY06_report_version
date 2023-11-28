@@ -336,18 +336,16 @@ button.btn:hover {
 .logo-container {
   align-items: center;
   width: 100vw;
-  height: auto;
 }
 
 .logo-container .logo {
-  font-size: 25pt;
   padding-left: 5vw;
-  padding-top: 1vh;
+  padding-top: 5vh;
 }
 
 .logo-container .text {
   padding-left: 5vw;
-  font-size: 12pt;
+  font-size: 16pt;
 }
 
 .info .reward {
@@ -389,6 +387,7 @@ button.btn:hover {
 .navigate-button {
   display: flex;
   padding: 2em;
+  padding-bottom: 10vh;
   justify-content: center;
   align-items: center;
 }

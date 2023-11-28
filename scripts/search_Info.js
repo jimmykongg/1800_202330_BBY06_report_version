@@ -20,153 +20,226 @@ function loadSkeleton() {
 
 // Returns the reward
 function readReward() {
+    const today = new Date().getDate();
     var reward = Math.floor(Math.random() * 101 + 100)
-    console.log(reward)
-    document.getElementById("reward-goes-here").innerHTML = reward;
+    if (localStorage.getItem("dateReward") == null) {
+        document.getElementById("reward-goes-here").innerHTML = reward;
+    }
+    if (today != localStorage.getItem("dateReward")) {
+        document.getElementById("reward-goes-here").innerHTML = reward;
+        localStorage.setItem("dateReward", today);
+    }
 }
 
 function createHeader() {
     const outerDiv = document.querySelector(".header");
-    db.collection("bins").doc(localStorage.getItem('docID'))
-        .onSnapshot(titleDoc => {
+    db.collection("bins").doc(localStorage.getItem("docID"))
+        .onSnapshot(doc => {
             const newDiv = document.createElement("div");
             const header = document.createElement("nav");
             header.setAttribute('id', 'headerPlaceHolder');
 
             newDiv.classList.add("title-container");
-
             newDiv.innerHTML = '<p class="title" id="title-goes-here"></p><p class="title" id="location-goes-here"></p>';
             outerDiv.appendChild(header);
             outerDiv.appendChild(newDiv);
-            document.getElementById("location-goes-here").innerHTML = titleDoc.data().city + ", " + titleDoc.data().province + ", " + titleDoc.data().country;
+            document.getElementById("title-goes-here").innerHTML = doc.data().city + ", " + doc.data().province + ", " + doc.data().country;
+            document.getElementById("location-goes-here").innerHTML = doc.data().street;
             console.log($('#headerPlaceHolder').load('./text/header.html'));
         })
 }
 
-// function createHeader() {
-//     const outerDiv = document.querySelector(".header");
-//     db.collection("locations").doc(localStorage.getItem("location"))
-//         .onSnapshot(titleDoc => {
-//             const newDiv = document.createElement("div");
-//             const header = document.createElement("nav");
-//             header.id = "headerPlaceHolder";
-
-//             newDiv.classList.add("title-container");
-
-//             newDiv.innerHTML ='<p class="title" id="title-goes-here"></p><p class="title" id="location-goes-here"></p>';
-//             outerDiv.appendChild(header);
-//             outerDiv.appendChild(newDiv);
-//             document.getElementById("title-goes-here").innerHTML = titleDoc.data().title;
-//             document.getElementById("location-goes-here").innerHTML = titleDoc.data().street;
-//             outerDiv.style.backgroundImage = "url('./images/" + localStorage.getItem("location") + ".jpg')";
-//             console.log($('#headerPlaceHolder').load('./text/header.html'));
-//         })
-// }
-
 function createRecyclables() {
     const outerDiv = document.querySelector(".info");
-    db.collection("locations").doc(localStorage.getItem("location")).collection("recyclables").doc("recycle")
-        .onSnapshot(recycleDoc => {
-            const divs = [];
-            const items = [];
-            const descriptions = [];
-            const numOfDivs = recycleDoc.data().numOfRecycables;
-            for (let y = 1; y <= numOfDivs; y++) {
+    db.collection("bins").doc(localStorage.getItem("docID"))
+        .onSnapshot(doc => {
+            const recycleArray = doc.data().material_type.toLowerCase().split(/[ ,]+/);
+            const numOfRecyclables = recycleArray.length;
+            for (let y = 0; y < numOfRecyclables; y++) {
                 const newDiv = document.createElement("div")
                 newDiv.classList.add("logo-container");
 
-                const logoId = "logo-goes-here-" + y;
-                const descriptionId = "recycle-description-goes-here-" + y;
+                var logo = document.createElement("i");
+                var desc = document.createElement("span");
+                desc.setAttribute("class", "text");
 
-                newDiv.innerHTML = '<span class="material-symbols-outlined logo"><span id="' + logoId + '"></span></span><span class="text"><span id="' + descriptionId + '"></span></span>';
+                switch (recycleArray[y]) {
+                    case ("plastic"):
+                        logo.setAttribute("class", "logo fa-solid fa-bottle-water fa-2xl");
+                        desc.innerHTML = "Plastic"
+                        break;
+                    case ("paper"):
+                        logo.setAttribute("class", "logo fa-solid fa-newspaper fa-2xl");
+                        desc.innerHTML = "Paper"
+                        break;
+                    case ("organic"):
+                        logo.setAttribute("class", "logo fa-solid fa-bacterium fa-2xl");
+                        desc.innerHTML = "Organic"
+                        break;
+                    case ("glass"):
+                        logo.setAttribute("class", "logo fa-solid fa-martini-glass fa-2xl");
+                        desc.innerHTML = "Glass"
+                        break;
+                    case ("metal"):
+                        logo.setAttribute("class", "logo fa-solid fa-plug fa-2xl");
+                        desc.innerHTML = "Metal"
+                        break;
+                }
+
+                newDiv.appendChild(logo);
+                newDiv.appendChild(desc);
                 outerDiv.appendChild(newDiv);
-                let item = "item" + y;
-                let desc = "description" + y;
-                divs.push(newDiv);
-                items.push(item);
-                descriptions.push(desc);
             }
-            for (let x = 0; x < divs.length; x++) {
 
-                const logoGoesHereId = "logo-goes-here-" + (x + 1);
-                const descriptionGoesHereId = "recycle-description-goes-here-" + (x + 1);
-
-                document.getElementById(logoGoesHereId).innerHTML = recycleDoc.data()[items[x]];
-                document.getElementById(descriptionGoesHereId).innerHTML = recycleDoc.data()[descriptions[x]];
-            }
             const reward = document.createElement("div");
             reward.classList.add("reward");
-            reward.innerHTML = '<span>You can get a <span id="reward-goes-here"></span> if you go recycle there</span>';
+            reward.innerHTML = '<span>You can get <span id="reward-goes-here"></span> points if you go recycle there</span>';
             outerDiv.appendChild(reward);
-            db.collection("locations").doc(localStorage.getItem("location"))
-                .onSnapshot(reward => {
-                    readReward();
-                })
 
-            })
-}
+            /** Logo Container */
+            var newDiv = document.createElement("div");
+            newDiv.setAttribute("class", "logo-container");
 
-function createNavigation() {
-    const outerDiv = document.querySelector(".navigate");
-    db.collection("locations").doc(localStorage.getItem("location"))
-        .onSnapshot(contentDoc => {
-            const divs = [];
-            const items = [];
-            const descriptions = [];
-            for (let y = 1; y <= 2; y++) {
-                const newDiv = document.createElement("div")
-                newDiv.classList.add("logo-container");
+            /** Logo from Font Awesome */
+            var logo = document.createElement("i");
+            logo.setAttribute("class", "logo fa-solid fa-person-running fa-2xl");
+            newDiv.appendChild(logo);
 
-                const logoId = "logo-goes-here-" + y;
-                const descriptionId = "description-goes-here-" + y;
+            /** Distance */
+            var description = document.createElement("span");
+            description.setAttribute("class", "text distance");
 
-                newDiv.innerHTML = '<span class="material-symbols-outlined logo"><span id="' + logoId + '"></span></span><span class="text"><span id="' + descriptionId + '"></span></span>';
-                outerDiv.appendChild(newDiv);
-                divs.push(newDiv);
-                items.push("directions_run");
-                descriptions.push("50 meters away");
+            if ("geolocation" in navigator) {
+                // Check if geolocation is supported
+                navigator.geolocation.getCurrentPosition(function (position) {
+                    // This function is the success callback
+
+                    // Get current time
+                    let now = new Date();
+                    let time = now.toLocaleTimeString(); // Converts the time to a string using locale conventions.
+
+                    /** Support function that calculates the distance */
+                    function getDistance() {
+                        lat = doc.data().lat;
+                        lng = doc.data().lng;
+
+                        // Extract lat and long
+                        var lat1 = position.coords.latitude;
+                        var long1 = position.coords.longitude
+
+                        var d = getDistanceInMeters(lat1, long1, lat, lng);
+
+                        if (d < 1000) {
+                            d = d.toFixed(0) + "m";
+                        } else {
+                            d = (d / 1000).toFixed(0) + "km";
+                        }
+
+                        description.innerHTML = d;
+                    }
+
+                    getDistance();
+
+                    /**
+                     * Check if user's position is within radius
+                     * If it is within radius, then a navigation buttons pops up to guide them to the rewards.html to claim rewards 
+                     * after they have recycled (We trust the user to do this, no validation function so far).
+                     */
+
+                }, function (error) {
+                    // This function is the error callback
+                    console.error("Error occurred: " + error.message);
+                });
             }
-            document.getElementById("logo-goes-here-1").innerHTML = items[0];
-            document.getElementById("logo-goes-here-2").innerHTML = items[1];
-            document.getElementById("description-goes-here-1").innerHTML = descriptions[0];
-            document.getElementById("description-goes-here-2").innerHTML = descriptions[1];
+
+            newDiv.appendChild(description);
+
+            /** Appending the new div */
+            outerDiv.appendChild(newDiv);
+
+            readReward();
+            createDescriptions();
         })
 }
 
-function createContent() {
+function createDescriptions() {
+    const textDivs = document.querySelectorAll('.text:not([class*=" "]');
     const outerDiv = document.querySelector(".content");
-    db.collection("locations").doc(localStorage.getItem("location")).collection("recyclables").doc("recycle")
-        .onSnapshot(contentDoc => {
-            const divs = [];
-            const items = [];
-            const numOfSpans = contentDoc.data().numOfRecycables;
-            const infoPath = 'contentDoc.collection("recyclables").doc("recycle").data()';
-            newSpan = document.createElement("span");
-            newSpan.id = "recyclables";
-            newSpan.innerHTML = "What you could recycle";
 
-            outerDiv.appendChild(newSpan);
+    /** Creating the title */
+    var newSpan = document.createElement("span");
+    newSpan.id = "recyclables";
+    newSpan.innerHTML = "What you could recycle";
+    outerDiv.appendChild(newSpan);
 
-            for (let x = 1; x <= numOfSpans; x++) {
-                const newContent = document.createElement("span");
+    for (let i = 0; i < textDivs.length; i++) {
+        db.collection("recycleables").doc(textDivs[i].textContent.toLowerCase())
+            .onSnapshot(content => {
+                var newContent = document.createElement("span");
                 newContent.id = "item";
-
-                let descriptionId = "recycle-info-goes-here-" + x;
-
-                newContent.innerHTML = '<span id="' + descriptionId + '"></span>';
+                newContent.innerHTML = content.data().description;
                 outerDiv.appendChild(newContent);
+            })
+    }
+}
 
-                let description = 'item' + x + 'Info';
-                newContent.innerHTML = '<span id="' + descriptionId + '"></span>';
-                divs.push(newContent);
-                items.push(description);
-            }
-            for (let x = 0; x < divs.length; x++) {
-                const descriptionGoesHereId = "recycle-info-goes-here-" + (x + 1);
+function getGeolocation(doc) {
+    if ("geolocation" in navigator) {
+        // Check if geolocation is supported
+        navigator.geolocation.getCurrentPosition(function (position) {
+            // This function is the success callback
 
-                document.getElementById(descriptionGoesHereId).innerHTML = contentDoc.data()[items[x]];
+            // Get current time
+            let now = new Date();
+            let time = now.toLocaleTimeString(); // Converts the time to a string using locale conventions.
+
+            /** Support function that calculates the distance */
+            function getDistance(doc) {
+                lat = doc.data().lat;
+                lng = doc.data().lng;
+
+                // Extract lat and long
+                var lat1 = position.coords.latitude;
+                var long1 = position.coords.longitude
+
+                var d = getDistanceInMeters(lat1, long1, lat, lng);
+                console.log(d);
+                return d;
             }
-        })
+
+            getDistance(doc);
+
+            /**
+             * Check if user's position is within radius
+             * If it is within radius, then a navigation buttons pops up to guide them to the rewards.html to claim rewards 
+             * after they have recycled (We trust the user to do this, no validation function so far).
+             */
+
+        }, function (error) {
+            // This function is the error callback
+            console.error("Error occurred: " + error.message);
+        });
+    } else {
+        // Geolocation isn’t available
+        console.error("Geolocation is not supported by this browser.");
+    }
+}
+
+function deg2rad(deg) {
+    return deg * (Math.PI / 180)
+}
+
+function getDistanceInMeters(lat1, lon1, lat2, lon2) {
+    var R = 6371; // Radius of the earth in km
+    var dLat = deg2rad(lat2 - lat1); // deg2rad below
+    var dLon = deg2rad(lon2 - lon1);
+    var a =
+        Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+        Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) *
+        Math.sin(dLon / 2) * Math.sin(dLon / 2);
+    var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    var d = R * c;
+    return d * 1000; // Distance in meters
 }
 
 document.getElementById("myBtn").addEventListener("click", function () {
