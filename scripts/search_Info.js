@@ -24,10 +24,14 @@ function readReward() {
     var reward = Math.floor(Math.random() * 101 + 100)
     if (localStorage.getItem("dateReward") == null) {
         document.getElementById("reward-goes-here").innerHTML = reward;
+        localStorage.setItem("reward", reward);
     }
     if (today != localStorage.getItem("dateReward")) {
         document.getElementById("reward-goes-here").innerHTML = reward;
         localStorage.setItem("dateReward", today);
+        localStorage.setItem("reward", reward);
+    } else {
+        document.getElementById("reward-goes-here").innerHTML = localStorage.getItem("reward");
     }
 }
 
