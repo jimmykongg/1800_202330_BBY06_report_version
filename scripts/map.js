@@ -315,24 +315,114 @@ function deg2rad(deg) {
   return deg * (Math.PI / 180)
 }
 
-//-----------------------------------------------------------------------------
-// This function is called whenever the user clicks on the "bookmark" icon.
-// It adds the hike to the "bookmarks" array
-// Then it will change the bookmark icon from the hollow to the solid version. 
-//-----------------------------------------------------------------------------
-
-
 //---------------------------------------------------------------
 // A DOM event that pops up a navigation button below the map.
+// The ckick event will do two things in order:
+// (1) Navigate users to rewards.html to claim their rewards
+// (2) Updare users' information after they have recycled
 //---------------------------------------------------------------
 function createButton() {
   let parentNode = document.getElementById("main-body");
   let referenceNode = document.getElementById("accordionFlush");
   let newNode = document.createElement("div");
   newNode.setAttribute("class", "position-relative mb-3");
-  newNode.innerHTML = `<button type="button" onclick="location.href='./rewards.html'" class="btn btn-outline-success position-absolute top-0 start-50 translate-middle">Start Recycling</button>`;
+  newNode.innerHTML = `<button type="button" onclick="updateBeforeNavigate()" class="btn btn-outline-success position-absolute top-0 start-50 translate-middle">Start Recycling</button>`;
   parentNode.insertBefore(newNode, referenceNode);
 }
+
+async function updateBeforeNavigate() {
+  // Call updateUserInfo synchronously
+  await updateUserInfo();
+
+  // After updateUserInfo is completed, navigate to rewards.html
+  location.href = './rewards.html';
+}
+
+function updateUserInfo() {
+  // Firestore functions work asynchronously, 
+  // we have to wrap it in a promise to make it work synchronously.
+  return new Promise(resolve => {
+    const docID = localStorage.getItem("docID");
+
+    firebase.auth().onAuthStateChanged(user => {
+      if (user) {
+        console.log(user.uid);
+        const currentUser = db.collection("users").doc(user.uid);
+
+        // Get the current timestamp
+        const timestamp = firebase.firestore.FieldValue.serverTimestamp();
+
+        // Create a reference to the "history" collection
+        const historyCollection = db.collection("history");
+
+        // Create a new document in the "history" collection with the recycling information
+        const historyDocument = {
+          binID: docID,
+          street: localStorage.getItem("street"),
+          last_visited: timestamp,
+        };
+
+        // Add the new document to the "history" collection
+        historyCollection.add(historyDocument)
+          .then(historyDocRef => {
+            // Use the reference to the new "history" document to update the user's information
+            currentUser.update({
+              history: firebase.firestore.FieldValue.arrayUnion(historyDocRef.id),
+              recentLocation: localStorage.getItem("street"),
+              recyclePoint: firebase.firestore.FieldValue.increment(100)
+            })
+              .then(() => {
+                console.log("Document successfully updated!");
+                resolve();
+              })
+              .catch(error => {
+                console.error("Error updating document: ", error);
+                resolve();
+              });
+          })
+          .catch(error => {
+            console.error("Error adding document to history collection: ", error);
+            resolve();
+          });
+      } else {
+        console.log("No user is logged in.");
+        resolve();
+      }
+    });
+  });
+}
+
+/*
+function updateUserInfo() {
+  
+  return new Promise(resolve => {
+    const docID = localStorage.getItem("docID");
+
+    firebase.auth().onAuthStateChanged(user => {
+      if (user) {
+        console.log(user.uid);
+        currentUser = db.collection("users").doc(user.uid);
+        currentUser.update({
+          // Use 'arrayUnion' to add the new bin document ID to the 'history' array.
+          // This method ensures that the ID is added only if it's not already present, preventing duplicates.
+          history: firebase.firestore.FieldValue.arrayUnion(docID),
+          recentLocation: localStorage.getItem("street"),
+          recyclePoint: firebase.firestore.FieldValue.increment(100)
+        })
+          .then(() => {
+            console.log("Document successfully updated!");
+            resolve(); // Resolve the promise to indicate that updateUserInfo is completed
+          });
+      } else {
+        console.log("No user is logged in.");
+        resolve(); // Resolve the promise if there is no user
+      }
+    });
+  });
+}
+*/
+
+
 
 
 

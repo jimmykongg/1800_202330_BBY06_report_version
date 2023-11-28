@@ -33,19 +33,20 @@ function getHistories(user) {
   db.collection("users").doc(user.uid).get()
     .then(userDoc => {
 
-      // Get the Array of recycling history records
+      // Get recycling history records
       var histories = userDoc.data().history;
 
-      // Get pointer the new card template
+      // Get pointer to the new card template
       let newcardTemplate = document.getElementById("historyTemplate");
 
       // Iterate through the ARRAY of history records (document ID's)
       histories.forEach(thisBinID => {
-        db.collection("bins").doc(thisBinID).get().then(doc => {
+        db.collection("history").doc(thisBinID).get().then(doc => {
           let street = doc.data().street;
           let lastVisitedTime = doc.data().last_visited.toMillis();
           let timeDiffInSec = (new Date().getTime() - lastVisitedTime) / 1000;
           let timeMessage;
+
           if (timeDiffInSec < 30) {
             timeMessage = "Just now";
           } else if (timeDiffInSec <= 60) {
@@ -74,55 +75,13 @@ function getHistories(user) {
 
 //----------------------------------------------------------
 // This function sorts and displays the history cards 
-// according to the sort options selected by the user
+// according to the sort options selected by the user.
+// 
+// The implmentation is basically a variation of getHistories
+// in addition to .orderBy() or .limit() functions
 //----------------------------------------------------------
 function displaySortedHistories(sortOption, directionStr) {
 
-  firebase.auth().onAuthStateChanged(user => {
-    if (user) {
-      db.collection("users").doc(user.uid).get().then(userDoc => {
-
-        // Get the Array of recycling history records
-        var histories = userDoc.data().history;
-
-        // Get pointer the new card template
-        let newcardTemplate = document.getElementById("historyTemplate");
-
-        // Iterate through the ARRAY of history records (document ID's)
-        histories.forEach(thisBinID => {
-          db.collection("bins").doc(thisBinID).then(doc => {
-              let street = doc.data().street;
-              let lastVisitedTime = doc.data().last_visited.toMillis();
-              let timeDiffInSec = (new Date().getTime() - lastVisitedTime) / 1000;
-              let timeMessage;
-              if (timeDiffInSec < 30) {
-                timeMessage = "Just now";
-              } else if (timeDiffInSec <= 60) {
-                timeMessage = "1 minute ago"
-              } else if (timeDiffInSec <= 3600) {
-                timeMessage = `${Math.floor(timeDiffInSec / 60)} minutes ago`
-              } else if (timeDiffInSec <= 3600 * 24) {
-                timeMessage = `${Math.floor(timeDiffInSec / 3600)} hours ago`
-              } else {
-                timeMessage = `${Math.floor(timeDiffInSec / 86400)} days ago`
-              }
-
-              //clone the new card
-              let newcard = historyTemplate.content.cloneNode(true);
-
-              //update title and some pertinant information
-              newcard.querySelector('.card-title').innerHTML = street;
-              newcard.querySelector('.card-last-visited').innerHTML = timeMessage;
-
-              //Finally, attach this new card to the div
-              document.getElementById("historyCardGroup").appendChild(newcard);
-            })
-        });
-      })
-    } else {
-      console.log("No user is signed in");
-    }
-  });
 }
 
 //----------------------------------------------------------

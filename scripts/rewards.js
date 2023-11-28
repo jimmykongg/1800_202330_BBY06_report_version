@@ -1,40 +1,6 @@
 // Developed by Jimmy
 
 //--------------------------------------------------------------------
-// Get the document ID from localStorage update user's, then updates
-// (1) recent recycling location, 
-// (2) recycling history [Array of bins ID] for further processing in history.html
-// (3) recycling reward points
-//--------------------------------------------------------------------
-function updateUserInfo() {
-  const docID = localStorage.getItem("docID");
-
-  firebase.auth().onAuthStateChanged(user => {
-    if (user) {
-      console.log(user.uid);
-      currentUser = db.collection("users").doc(user.uid);
-      currentUser.update({
-        // Use 'arrayUnion' to add the new bin document ID to the 'history' array.
-        // This method ensures that the ID is added only if it's not already present, preventing duplicates.
-        history: firebase.firestore.FieldValue.arrayUnion(docID),
-        recentLocation: localStorage.getItem("street"),
-        recyclePoint: firebase.firestore.FieldValue.increment(100)
-      })
-        .then(() => {
-          console.log("Document successfully updated!");
-        })
-    } else {
-      console.log("No user is logged in.");
-    }
-  })
-}
-
-document.addEventListener("DOMContentLoaded", (event) => {
-  updateUserInfo();
-});
-
-
-//--------------------------------------------------------------------
 // Generate two random emoji images to users 
 // in order to encourage users to exchange emoji with others.  
 //--------------------------------------------------------------------
