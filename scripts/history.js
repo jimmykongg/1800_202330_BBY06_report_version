@@ -77,11 +77,72 @@ function getHistories(user) {
 // This function sorts and displays the history cards 
 // according to the sort options selected by the user.
 // 
-// The implmentation is basically a variation of getHistories
-// in addition to .orderBy() or .limit() functions
+// The implmentation is basically a variation of getHistories function
+// in addition to .orderBy() function 
+//
+// @param directionStr sort direction which accepts 'asc' or 'desc' only
+//        according to Firestore documentation API
 //----------------------------------------------------------
-function displaySortedHistories(sortOption, directionStr) {
+function sort(user) {
+  const currentUserDocRef = db.collection("users").doc(user.uid);
 
+  currentUserDocRef.get().then(userDoc => {
+    // Get recycling history records
+    const histories = userDoc.data().history;
+
+    // Get pointer to the new card template
+    let newcardTemplate = document.getElementById("historyTemplate");
+
+    // Create a query for the "history" collection, ordering by the street field in ascending order
+    db.collection("history")
+      .orderBy(firebase.firestore.FieldPath.documentId())
+      .where(firebase.firestore.FieldPath.documentId(), "in", histories)
+      .get()
+      .then(querySnapshot => {
+        querySnapshot.forEach(doc => {
+          console.log("Sort succeed!");
+          let street = doc.data().street;
+          let lastVisitedTime = doc.data().last_visited.toMillis();
+          let timeDiffInSec = (new Date().getTime() - lastVisitedTime) / 1000;
+          let timeMessage;
+
+          if (timeDiffInSec < 30) {
+            timeMessage = "Just now";
+          } else if (timeDiffInSec <= 60) {
+            timeMessage = "1 minute ago";
+          } else if (timeDiffInSec <= 3600) {
+            timeMessage = `${Math.floor(timeDiffInSec / 60)} minutes ago`;
+          } else if (timeDiffInSec <= 3600 * 24) {
+            timeMessage = `${Math.floor(timeDiffInSec / 3600)} hours ago`;
+          } else {
+            timeMessage = `${Math.floor(timeDiffInSec / 86400)} days ago`;
+          }
+
+          // Clone the new card
+          let newcard = historyTemplate.content.cloneNode(true);
+
+          // Update title and some pertinent information
+          newcard.querySelector('.card-title').innerHTML = street;
+          newcard.querySelector('.card-last-visited').innerHTML = timeMessage;
+
+          // Finally, attach this new card to the div
+          document.getElementById("historyCardGroup").appendChild(newcard);
+        });
+      })
+      .catch(error => {
+        console.error("Error querying history collection: ", error);
+      });
+  });
+}
+
+function sortHistories() {
+  firebase.auth().onAuthStateChanged(user => {
+    if (user) {
+      sort(user);
+    } else {
+      console.log("No user is signed in");
+    }
+  });
 }
 
 //----------------------------------------------------------

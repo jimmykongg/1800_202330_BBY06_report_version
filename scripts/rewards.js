@@ -109,7 +109,6 @@ function updateProgressBar() {
         function updateProgress() {
           for (let i = 0; i < 2; i++) {
             if (j <= percentage) {
-              console.log("j is: " + j);
               updatedBars[i].setAttribute("style", `width: ${j}%`);
               updatedBars[i].setAttribute("aria-valuenow", j);
               j++;

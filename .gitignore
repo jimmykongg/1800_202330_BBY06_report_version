@@ -2,3 +2,8 @@
 *.logs
 node_modules/
 .vscode/
+firebase.json
+.firebaserc
+firestore.indexes.json
+firestore.rules
+404.html

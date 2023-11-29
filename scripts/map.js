@@ -366,8 +366,9 @@ function updateUserInfo() {
         historyCollection.add(historyDocument)
           .then(historyDocRef => {
             // Use the reference to the new "history" document to update the user's information
+
             currentUser.update({
-              history: firebase.firestore.FieldValue.arrayUnion(historyDocRef.id),
+              history: firebase.firestore.FieldValue.arrayUnion(...[historyDocRef.id, localStorage.getItem("street")]),
               recentLocation: localStorage.getItem("street"),
               recyclePoint: firebase.firestore.FieldValue.increment(100)
             })
@@ -392,35 +393,6 @@ function updateUserInfo() {
   });
 }
 
-/*
-function updateUserInfo() {
-  
-  return new Promise(resolve => {
-    const docID = localStorage.getItem("docID");
-
-    firebase.auth().onAuthStateChanged(user => {
-      if (user) {
-        console.log(user.uid);
-        currentUser = db.collection("users").doc(user.uid);
-        currentUser.update({
-          // Use 'arrayUnion' to add the new bin document ID to the 'history' array.
-          // This method ensures that the ID is added only if it's not already present, preventing duplicates.
-          history: firebase.firestore.FieldValue.arrayUnion(docID),
-          recentLocation: localStorage.getItem("street"),
-          recyclePoint: firebase.firestore.FieldValue.increment(100)
-        })
-          .then(() => {
-            console.log("Document successfully updated!");
-            resolve(); // Resolve the promise to indicate that updateUserInfo is completed
-          });
-      } else {
-        console.log("No user is logged in.");
-        resolve(); // Resolve the promise if there is no user
-      }
-    });
-  });
-}
-*/
 
 localStorage.setItem("stack", 1);
 
