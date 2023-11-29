@@ -422,7 +422,7 @@ function updateUserInfo() {
 }
 */
 
-
+localStorage.setItem("stack", 1);
 
 
 

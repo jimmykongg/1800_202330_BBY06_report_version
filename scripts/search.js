@@ -426,7 +426,7 @@ function updateButtonText() {
 
 createLocations();
 getGeolocation();
-
+localStorage.setItem("stack", 0);
 
 // Sortdivs gets ran but its not sorting properly (Prob because asynchronous behaviour?)
 //Its clearing the outerDiv without reappending.

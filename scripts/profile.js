@@ -155,3 +155,4 @@ document.getElementById("save-btn").addEventListener("click", function (event) {
     saveUserInfo();
 });
 
+localStorage.setItem("stack", 0);

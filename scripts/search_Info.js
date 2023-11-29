@@ -45,11 +45,16 @@ function createHeader() {
 
             newDiv.classList.add("title-container");
             newDiv.innerHTML = '<p class="title" id="title-goes-here"></p><p class="title" id="location-goes-here"></p>';
+
+            var icon = document.createElement("i");
+            icon.setAttribute("id", "backButton");
+            icon.setAttribute("class", "fa-solid fa-arrow-left fa-2xl");
+            header.appendChild(icon);
+
             outerDiv.appendChild(header);
             outerDiv.appendChild(newDiv);
             document.getElementById("title-goes-here").innerHTML = doc.data().city + ", " + doc.data().province + ", " + doc.data().country;
             document.getElementById("location-goes-here").innerHTML = doc.data().street;
-            console.log($('#headerPlaceHolder').load('./text/header.html'));
         })
 }
 
@@ -247,7 +252,8 @@ function getDistanceInMeters(lat1, lon1, lat2, lon2) {
 }
 
 document.getElementById("myBtn").addEventListener("click", function () {
-    window.location.href = "main.html";
+    window.location.href = "./map.html";
 });
 
 loadSkeleton();  //invoke the function
+localStorage.setItem("stack", 1);

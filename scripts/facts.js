@@ -45,3 +45,4 @@ function createFacts() {
         }
     });
 }
+localStorage.setItem("stack", 0);

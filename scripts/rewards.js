@@ -211,5 +211,5 @@ function reloadProgressBar() {
   })
 }
 
-
+localStorage.setItem("stack", 2);
 

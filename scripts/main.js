@@ -53,3 +53,4 @@ document.querySelector(".fact-of-the-day-container").addEventListener("click", f
 
 getDailyFact();
 getNameFromAuth(); //run the function
+localStorage.setItem("stack", 0);
