@@ -56,9 +56,9 @@
           Sorted options
         </button>
         <ul class="dropdown-menu option-menu">
-          <li onclick="sortHistories()">Street Name (A-Z)</li>
-          <li onclick="sortHistories('street', 'desc')">Street Name (Z-A)</li>
-          <li onclick="sortHistories('last_visited', 'desc')">Most recently</li>
+          <li onclick="DisplaySortedCards('street', 'asc')">Street Name (A-Z)</li>
+          <li onclick="DisplaySortedCards('street', 'desc')">Street Name (Z-A)</li>
+          <li onclick="DisplaySortedCards('last_visited', 'desc')">Most recently</li>
         </ul>
       </div>
       
@@ -74,6 +74,8 @@
         </ul>
       </div>
     </div>
+
+    <div id="cardGroup-goes-here"></div>
 
   </div>
 

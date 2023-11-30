@@ -368,7 +368,7 @@ function updateUserInfo() {
             // Use the reference to the new "history" document to update the user's information
 
             currentUser.update({
-              history: firebase.firestore.FieldValue.arrayUnion(...[historyDocRef.id, localStorage.getItem("street")]),
+              history: firebase.firestore.FieldValue.arrayUnion(historyDocRef.id),
               recentLocation: localStorage.getItem("street"),
               recyclePoint: firebase.firestore.FieldValue.increment(100)
             })
