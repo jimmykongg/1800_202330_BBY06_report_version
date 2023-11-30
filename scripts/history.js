@@ -88,9 +88,9 @@ function getHistories(user) {
 // according to the sort options selected by the user.
 // 
 // The implmentation is basically a variation of getHistories function
-// in addition to .sort() and .map() function 
+// in addition to .sort() and .map() functions 
 //
-// @sortBy sort criteria which accepts "street" or "last_visited"
+// @param sortBy sort criteria which accepts "street" or "last_visited"
 // @param directionStr sort direction which accepts "asc" or "desc" 
 //----------------------------------------------------------
 function DisplaySortedCards(sortBy, directionStr) {
@@ -193,6 +193,10 @@ function DisplaySortedCards(sortBy, directionStr) {
   });
 }
 
+//----------------------------------------------------------
+// A sort function that sorts two last_visted timestamp 
+// by descending order (most recent comes first)
+//----------------------------------------------------------
 function compareTimestamp(a, b) {
   a = a.data().last_visited.toMillis();
   b = b.data().last_visited.toMillis();
@@ -204,48 +208,143 @@ function compareTimestamp(a, b) {
 //----------------------------------------------------------
 // This function limits number of histories displayed 
 // according to the shown options selected by the user
+//
+// The implmentation is basically a variation of getHistories function
+// in addition adding a new parameter to control number of iterations
+//
+// @param num Number of cards displayed on this page
 //----------------------------------------------------------
-function displayLimitedHistories(user, number) {
-  db.collection("users").doc(user.uid)
-    .limit(number)
-    .get()
-    .then(userDoc => {
+function limitCards(num) {
+  firebase.auth().onAuthStateChanged(user => {
+    if (user) {
+      db.collection("users").doc(user.uid).get()
+        .then(userDoc => {
 
-      // Get the Array of recycling history records
-      var histories = userDoc.data().history;
+          // Get recycling history records
+          var histories = userDoc.data().history;
 
-      // Get pointer the new card template
-      let newcardTemplate = document.getElementById("historyTemplate");
+          document.getElementById("cardGroup-goes-here").innerHTML = "";
 
-      // Iterate through the ARRAY of history records (document ID's)
-      histories.forEach(thisBinID => {
-        db.collection("bins").doc(thisBinID).get().then(doc => {
-          let street = doc.data().street;
-          let lastVisitedTime = doc.data().last_visited.toMillis();
-          let timeDiffInSec = (new Date().getTime() - lastVisitedTime) / 1000;
-          let timeMessage;
-          if (timeDiffInSec < 30) {
-            timeMessage = "Just now";
-          } else if (timeDiffInSec <= 60) {
-            timeMessage = "1 minute ago"
-          } else if (timeDiffInSec <= 3600) {
-            timeMessage = `${Math.floor(timeDiffInSec / 60)} minutes ago`
-          } else if (timeDiffInSec <= 3600 * 24) {
-            timeMessage = `${Math.floor(timeDiffInSec / 3600)} hours ago`
-          } else {
-            timeMessage = `${Math.floor(timeDiffInSec / 86400)} days ago`
+          // Get pointer to the new card template
+          let newcardTemplate = document.getElementById("historyTemplate");
+
+          // Iterate through the ARRAY of history records (document ID's)
+          for (let i = 0; i < num; i++) {
+            let thisBinID = histories[i];
+
+            db.collection("history").doc(thisBinID).get().then(doc => {
+              // Check if the document exists and has data
+              if (doc.exists && doc.data()) {
+                let street = doc.data().street;
+                let lastVisitedTime = doc.data().last_visited?.toMillis();
+
+                // Check if last_visitedTime exists before accessing properties
+                if (lastVisitedTime) {
+                  let timeDiffInSec = (new Date().getTime() - lastVisitedTime) / 1000;
+                  let timeMessage;
+
+                  if (timeDiffInSec < 30) {
+                    timeMessage = "Just now";
+                  } else if (timeDiffInSec <= 60) {
+                    timeMessage = "1 minute ago";
+                  } else if (timeDiffInSec <= 3600) {
+                    timeMessage = `${Math.floor(timeDiffInSec / 60)} minutes ago`;
+                  } else if (timeDiffInSec <= 3600 * 24) {
+                    timeMessage = `${Math.floor(timeDiffInSec / 3600)} hours ago`;
+                  } else {
+                    timeMessage = `${Math.floor(timeDiffInSec / 86400)} days ago`;
+                  }
+
+                  // Clone the new card
+                  let newcard = historyTemplate.content.cloneNode(true);
+
+                  // Update title and some pertinent information
+                  newcard.querySelector('.card-title').innerHTML = street;
+                  newcard.querySelector('.card-last-visited').innerHTML = timeMessage;
+
+                  // Finally, attach this new card to the div
+                  document.getElementById("cardGroup-goes-here").appendChild(newcard);
+                }
+              }
+            });
           }
-
-          //clone the new card
-          let newcard = historyTemplate.content.cloneNode(true);
-
-          //update title and some pertinant information
-          newcard.querySelector('.card-title').innerHTML = street;
-          newcard.querySelector('.card-last-visited').innerHTML = timeMessage;
-
-          //Finally, attach this new card to the div
-          document.getElementById("historyCardGroup").appendChild(newcard);
         })
-      });
-    })
+        .catch(error => {
+          console.error("Error getting user document:", error);
+        });
+    } else {
+      console.log("No user is signed in");
+    }
+  });
 }
+
+//----------------------------------------------------------
+// This function clear histories by calling 
+//
+// @param num Number of cards displayed on this page
+//----------------------------------------------------------
+function clearHistory() {
+  firebase.auth().onAuthStateChanged(user => {
+    if (user) {
+      db.collection("users").doc(user.uid).get().then(userDoc => {
+        const currentUser = db.collection("users").doc(user.uid);
+        const historiesID = userDoc.data().history.slice();
+
+        // Remove all elements (History IDs) in history array
+        currentUser.update({
+          history: firebase.firestore.FieldValue.arrayRemove(...historiesID)
+        })
+          .then(() => {
+            console.log("Array cleared successfully");
+          })
+
+        // Remove the existing cards
+        document.getElementById("cardGroup-goes-here").innerHTML = "";
+
+      })
+    } else {
+      console.log("No user is signed in");
+    }
+  });
+}
+
+// "Clear History" button should not be active while there's no history records
+window.addEventListener("load", () => {
+  firebase.auth().onAuthStateChanged(user => {
+    if (user) {
+      db.collection("users").doc(user.uid).get().then(userDoc => {
+        if (userDoc.data().history.length == 0) {
+          document.getElementById("clear-history").setAttribute("disabled", "");
+        }
+      })
+    }
+  });
+});
+
+//----------------------------------------------------------
+// "Clear History" button should not be active after user has cleared history
+//
+// MutationObserver detects changes of child elements within target element
+//
+// Source: Example from MDN docs
+// https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver
+//----------------------------------------------------------
+
+// Select the node that will be observed for mutations
+const targetNode = document.getElementById("cardGroup-goes-here");
+
+// Callback function to execute when mutations are observed
+const callback = (mutationList, observer) => {
+  for (const mutation of mutationList) {
+    if (mutation.type === "childList" && targetNode.innerHTML == "") {
+      document.getElementById("clear-history").setAttribute("disabled", "");
+    }
+  }
+};
+
+// Create an observer instance linked to the callback function
+const observer = new MutationObserver(callback);
+// Start observing the target node for configured mutations
+observer.observe(targetNode, {childList: true});
+
+

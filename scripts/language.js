@@ -15,6 +15,9 @@ function switchlanguages() {
   // Add click event listener to each switch
   languageSwitches.forEach(switchElement => {
     switchElement.addEventListener('click', function () {
+      // target switch cannot be unchecked
+      switchElement.checked = true;
+      
       // Uncheck all other switches
       languageSwitches.forEach(otherSwitch => {
         if (otherSwitch !== switchElement) {

@@ -50,9 +50,10 @@
     <h1 class="display-4 fw-bold" id="history-page-title"><span id="name-goes-here"></span>'s Recycling History</h1>
 
     <div id="btns-group">
-      <div class ="option" id="sort-btn">
+      <div class="option" id="sort-btn">
         <p class="option-text">Sorted by: </p>
-        <button class="btn btn-secondary btn-sm dropdown-toggle bg-success option-btn" id="sort-options"type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <button class="btn btn-secondary btn-sm dropdown-toggle bg-success option-btn" id="sort-options" type="button"
+          data-bs-toggle="dropdown" aria-expanded="false">
           Sorted options
         </button>
         <ul class="dropdown-menu option-menu">
@@ -61,39 +62,69 @@
           <li onclick="DisplaySortedCards('last_visited', 'desc')">Most recently</li>
         </ul>
       </div>
-      
+
       <div class="option" id="time-btn">
         <p class="option-text">Shown: </p>
-        <button class="btn btn-secondary btn-sm dropdown-toggle bg-success option-btn" id="show-options" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <button class="btn btn-secondary btn-sm dropdown-toggle bg-success option-btn" id="show-options" type="button"
+          data-bs-toggle="dropdown" aria-expanded="false">
           Number of record
         </button>
         <ul class="dropdown-menu option-menu">
-          <li>2</li>
-          <li>5</li>
-          <li>20</li>
+          <li onclick="limitCards(2)">2</li>
+          <li onclick="limitCards(5)">5</li>
+          <li onclick="limitCards(20)">20</li>
         </ul>
+      </div>
+
+      <!-- Button trigger modal -->
+      <div id="clear-btn">
+        <button type="button" class="btn btn-primary my-2" data-bs-toggle="modal" data-bs-target="#change-profile">
+          Clear History
+        </button>
+      </div>
+
+      <!-- Modal -->
+      <div class="modal fade" id="change-profile" tabindex="-1" aria-labelledby="change-profile" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="change-profile-label">Clear Recycling History</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+
+              <!-- User input form to change profile-->
+              <div class="container">
+                <p>History will be cleared from your account. Once cleared, it cannot be recovered.</p>
+              </div>
+
+            </div>
+            <div class="modal-footer modal-clear">
+              <button onclick="clearHistory()" type="button" class="btn btn-secondary" id="clear-history" data-bs-dismiss="modal">Clear History</button>
+              <button type="button" class="btn btn-primary" data-bs-dismiss="modal" id="save-btn">Cancel</button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
     <div id="cardGroup-goes-here"></div>
 
-  </div>
-
-  <!-- Templates for general use, not displayed -->
-  <template id="historyTemplate">
-    <div class="card history-card">
-      <div class="card-body">
-        <h5 class="card-title">Street name</h5>
+    <!-- Templates for general use, not displayed -->
+    <template id="historyTemplate">
+      <div class="card history-card">
+        <div class="card-body">
+          <h5 class="card-title">Street name</h5>
+        </div>
+        <div class="card-footer text-muted card-last-visited">
+          ... ago
+        </div>
       </div>
-      <div class="card-footer text-muted card-last-visited">
-        ... ago
-      </div>
-    </div>
-  </template>
+    </template>
 
-  <nav id="footerPlaceholder"></nav>
+    <nav id="footerPlaceholder"></nav>
 
-  <!-- <footer>
+    <!-- <footer>
     <div class="navbar justify-content-between fixed-bottom" id="navbar">
       <div class="container">
         <div class="center">
@@ -126,12 +157,12 @@
       </div>
     </div>
   </footer> -->
-  <!---------------------------------------------->
-  <!-- Your own JavaScript functions go here    -->
-  <!---------------------------------------------->
-  <script src="./scripts/firebaseAPI_BBY06.js"></script>
-  <script src="./scripts/skeleton.js"></script>
-  <script src="./scripts/history.js"></script>
+    <!---------------------------------------------->
+    <!-- Your own JavaScript functions go here    -->
+    <!---------------------------------------------->
+    <script src="./scripts/firebaseAPI_BBY06.js"></script>
+    <script src="./scripts/skeleton.js"></script>
+    <script src="./scripts/history.js"></script>
 
 </body>
 
