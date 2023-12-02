@@ -11,7 +11,7 @@ function loadSkeleton(){
             // console.log($('#navbarPlaceholder').load('./text/nav_after_login.html'));
             console.log($('#headerPlaceHolder').load('./text/header.html'));
             console.log($('#footerPlaceholder').load('./text/footer.html'));
-        } else {
+            } else {
             // No user is signed in.
             // console.log($('#navbarPlaceholder').load('./text/nav_before_login.html'));
             console.log($('#headerPlaceHolder').load('./text/header.html'));

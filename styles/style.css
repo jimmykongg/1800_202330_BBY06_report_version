@@ -353,7 +353,7 @@ button.btn:hover {
   background-attachment: fixed;
   overflow: hidden;
   width: 100vw;
-  height: 25vh;
+  height: 21vh;
   position: sticky;
 }
 
@@ -573,6 +573,10 @@ button.btn:hover {
 
 .callout span {
   font-weight: bold;
+}
+
+#tab-navs {
+  padding-top: 5vh;
 }
 
 #tab-navs button {
@@ -898,7 +902,7 @@ button.btn:hover {
   margin-bottom: -5px;
   background: white;
   position: relative;
-  animation: text 2s 1;
+  animation: text 1.3s 1;
 }
 
 /* Description span. */

@@ -49,3 +49,4 @@ function switchLanguage(targetLanguage) {
   });
 }
 
+localStorage.setItem("stack", 1);

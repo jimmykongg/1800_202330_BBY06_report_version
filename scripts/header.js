@@ -5,6 +5,9 @@ if (localStorage.getItem("stack") > 0) {
     icon.setAttribute("id", "backButton");
     icon.setAttribute("class", "fa-solid fa-arrow-left fa-2xl");
     document.getElementById("icon-goes-here").appendChild(icon);
+    document.getElementById("icon-goes-here").addEventListener("click", function() {
+        window.history.back();
+    })
 }
 // } else {
 //     var icon = document.createElement("span");
