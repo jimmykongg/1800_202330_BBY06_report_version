@@ -51,6 +51,10 @@ function createHeader() {
             icon.setAttribute("class", "fa-solid fa-arrow-left fa-2xl");
             header.appendChild(icon);
 
+            header.querySelector("#backButton").addEventListener("click", function() {
+                window.history.back();
+            });
+
             outerDiv.appendChild(header);
             outerDiv.appendChild(newDiv);
             document.getElementById("title-goes-here").innerHTML = doc.data().city + ", " + doc.data().province + ", " + doc.data().country;

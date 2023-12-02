@@ -45,31 +45,6 @@ async function readJSONbin() {
     }
 }
 
-/* Redirects to map.html by click event 
- * and stores the document ID of recycling locations
- */
-// Developed by Jimmy
-
-// document.getElementById("first-location").addEventListener("click", function (event) {
-//     window.location.href = "./map.html";
-//     localStorage.setItem("docID", "6aKItibiBjY2cDWrA89u");
-// });
-// localStorage.setItem("docID1", "6aKItibiBjY2cDWrA89u");
-
-// document.getElementById("second-location").addEventListener("click", function (event) {
-//     window.location.href = "./map.html";
-//     localStorage.setItem("docID", "EKck6GUBPubHSrBZ6v8f");
-// });
-// localStorage.setItem("docID2", "EKck6GUBPubHSrBZ6v8f");
-
-// document.getElementById("third-location").addEventListener("click", function (event) {
-//     window.location.href = "./map.html";
-//     localStorage.setItem("docID", "EkvT4ux1fSxodGsX89Z8");
-// });
-// localStorage.setItem("docID3", "EkvT4ux1fSxodGsX89Z8");
-
-// Developed by Leo
-
 function deg2rad(deg) {
     return deg * (Math.PI / 180)
 }
@@ -226,6 +201,7 @@ function createLocations() {
                 const description = document.createElement('span');
                 description.setAttribute('class', 'description');
                 description.innerHTML = recyclable;
+                description.style.fontFamily = "myFont";
 
                 /** Append */
                 innermostDiv.appendChild(materialsContainer);

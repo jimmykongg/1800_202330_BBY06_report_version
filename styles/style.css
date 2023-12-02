@@ -1,3 +1,12 @@
+@font-face{
+  font-family: "myFont";
+  src: url("../text/fonts/VarelaRound-Regular.ttf");
+}
+
+* {
+  font-family: "myFont";
+}
+
 html,
 body {
   overflow-x: hidden;
@@ -7,6 +16,12 @@ body {
 /*
  * START OF Footer Navbar (Jimmy)
  */
+
+#backButton {
+  position: absolute;
+  top: 5vh;
+  left: 5vw;
+}
 
 div>.locate {
   padding: 0;
@@ -387,7 +402,7 @@ button.btn:hover {
 .navigate-button {
   display: flex;
   padding: 2em;
-  padding-bottom: 10vh;
+  padding-bottom: 13vh;
   justify-content: center;
   align-items: center;
 }
@@ -451,6 +466,10 @@ button.btn:hover {
   box-shadow: none;
   background-color: transparent;
   text-align: left;
+}
+
+.facts-body {
+  padding-bottom: 13vh;
 }
 
 .fact.info {
@@ -648,6 +667,7 @@ button.btn:hover {
   color: rgb(192, 210, 161);
   font-size: 2.2rem;
   margin-bottom: 2vh;
+  padding-top: 3vh;
 }
 
 #map {

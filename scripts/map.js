@@ -393,26 +393,20 @@ function updateUserInfo() {
   });
 }
 
+//Creates the back button
+function createBackButton() {
+  const header = document.querySelector(".mapHeader");
 
+  var icon = document.createElement("i");
+  icon.setAttribute("id", "backButton");
+  icon.setAttribute("class", "fa-solid fa-arrow-left fa-2xl");
+  header.appendChild(icon);
+  
+  header.querySelector("#backButton").addEventListener("click", function() {
+      window.history.back();
+  });
+
+}
+
+createBackButton();
 localStorage.setItem("stack", 1);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
