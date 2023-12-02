@@ -183,7 +183,7 @@ function createLocations() {
                         icon = "fa-solid fa-martini-glass fa-lg"
                         break;
                     case ("metal"):
-                        icon = "fa-solid fa-plug fa-lg";
+                        icon = "fa-solid fa-recycle fa-lg";
                         break;
                 }
 
@@ -225,7 +225,6 @@ function createLocations() {
             outerDiv.appendChild(innerDiv);
             container.append(outerDiv);
         })
-
     })
 }
 
@@ -252,6 +251,20 @@ function sortDivs() {
     sortedDivs.forEach(function (div) {
         overallDiv.appendChild(div);
     });
+
+    /* Animates the divs. */
+
+    const items = document.querySelectorAll(".location");
+
+    function slideInDivs() {
+        items.forEach((item, index) => {
+            setTimeout(() => {
+                item.classList.add("slide-in");
+            }, index * 100);
+        });
+    }
+
+    slideInDivs();
 
     localStorage.setItem('filter', 'None');
 }
@@ -309,6 +322,18 @@ function customSort() {
     sortedDivs.forEach(function (div) {
         overallDiv.appendChild(div);
     });
+
+    const items = document.querySelectorAll(".location");
+
+    function slideInDivs() {
+        items.forEach((item, index) => {
+            setTimeout(() => {
+                item.classList.add("slide-in");
+            }, index * 100);
+        });
+    }
+
+    slideInDivs();
 
 }
 

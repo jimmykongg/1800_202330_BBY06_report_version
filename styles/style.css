@@ -1,4 +1,4 @@
-@font-face{
+@font-face {
   font-family: "myFont";
   src: url("../text/fonts/VarelaRound-Regular.ttf");
 }
@@ -47,6 +47,7 @@ a:hover {
   background-color: #b7dd82;
   padding-top: 1em;
   padding-bottom: 0;
+  border-radius: 20px 20px 0 0;
 }
 
 #navbar a {
@@ -56,6 +57,14 @@ a:hover {
 
 #navbar a:hover {
   color: black;
+}
+
+#navbar .container {
+  width: 98vw;
+  height: 7.5vh;
+
+  display: flex;
+  justify-content: space-between;
 }
 
 /*
@@ -101,6 +110,10 @@ button.btn {
 
 button.btn:hover {
   background-color: #a6fadb;
+}
+
+.material-icons {
+  transform-origin: 50% 0%;
 }
 
 .material-icons.md-60 {
@@ -173,6 +186,15 @@ button.btn:hover {
 
 .search-title {
   margin-left: 10vw;
+}
+
+.location {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.slide-in {
+  opacity: 1;
 }
 
 /* Hide the dropdown content by default */
@@ -414,18 +436,15 @@ button.btn:hover {
   font-size: 20pt;
   font-weight: bold;
   margin-left: 15vw;
-  margin-top: 0;
+  margin-top: 5vh;
   margin-bottom: 0;
 }
 
 .facts-title-description {
+  all: unset;
   margin-left: 15vw;
   font-size: 10pt;
   color: gray;
-}
-
-.facts-container .search {
-  margin-top: 5vh;
 }
 
 .fact-container {
@@ -443,16 +462,17 @@ button.btn:hover {
   background-color: #7cb36c;
   border-radius: 20px;
   box-shadow: 3px 5px rgba(162, 162, 162, 0.2);
+
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
 }
 
-.fact>img {
-  position: absolute;
-  top: 10%;
-  left: 3%;
-  width: 10vw;
-  height: auto;
-  overflow: hidden;
-  object-fit: fill;
+.fact.slide-in {
+  opacity: 1;
+}
+
+.fact>i {
+  padding: 25px 0 0 15px;
 }
 
 .fact>.title {
@@ -780,7 +800,7 @@ button.btn:hover {
 }
 
 .modal-clear .btn-secondary {
-  background-color: rgb(247, 85, 60); 
+  background-color: rgb(247, 85, 60);
 }
 
 #sort-options {
@@ -795,16 +815,16 @@ button.btn:hover {
  * START OF Langauge page (Jimmy)
  */
 
- .language-title {
+.language-title {
   margin-bottom: 6vh;
- }
+}
 
- .language p {
+.language p {
   margin-top: 2vh;
- }
+}
 
- 
- .form-switch {
+
+.form-switch {
   display: grid;
   grid-template-rows: 1fr;
   grid-template-columns: 7fr 3fr;
@@ -813,7 +833,7 @@ button.btn:hover {
   margin-top: 5vh;
   padding-bottom: 5vh;
   border-bottom: 1px grey solid;
- }
+}
 
 .language .form-check-label {
   grid-row: 1 / span 1;
@@ -845,14 +865,57 @@ button.btn:hover {
 
 .main-body {
   display: flex;
+  height: 90vh;
   flex-direction: column;
   justify-content: center;
 }
 
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Container for animation. */
 .main-body .title {
+  display: flex;
+  flex-direction: column;
+
   font-size: 26pt;
   font-weight: bold;
   text-align: center;
+  padding-top: 0.3em;
+
+}
+
+.main-title {
+  margin-bottom: -5px;
+  background: white;
+  position: relative;
+  animation: text 2s 1;
+}
+
+/* Description span. */
+#main-title-description {
+  font-size: 14pt;
+  color: gray;
+}
+
+@keyframes text {
+  0% {
+    color: white;
+    margin-bottom: -30px;
+  }
+
+  70% {
+    margin-bottom: -30px;
+  }
 }
 
 .main-body>.content {
@@ -868,6 +931,7 @@ button.btn:hover {
   flex-direction: column;
   margin-top: 0.5em;
   margin-bottom: 1vh;
+  margin-top: 2em;
   box-shadow: 2px 2px 7px 2px rgba(0, 0, 0, 0.2);
 }
 
@@ -878,7 +942,7 @@ button.btn:hover {
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-.fact-of-the-day-container>.dailyFact {
+.fact-of-the-day-container .dailyFact {
   text-align: center;
 }
 
@@ -890,4 +954,8 @@ button.btn:hover {
 
 .main-icon-container>img {
   width: 25vw;
+}
+
+.main-title {
+  font-size: 40pt;
 }

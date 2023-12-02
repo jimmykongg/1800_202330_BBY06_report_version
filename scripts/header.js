@@ -5,10 +5,11 @@ if (localStorage.getItem("stack") > 0) {
     icon.setAttribute("id", "backButton");
     icon.setAttribute("class", "fa-solid fa-arrow-left fa-2xl");
     document.getElementById("icon-goes-here").appendChild(icon);
-} else {
-    var icon = document.createElement("span");
-    icon.setAttribute("id", "hamburgerMenu");
-    icon.setAttribute("class", "material-symbols-outlined");
-    icon.innerHTML = "menu";
-    document.getElementById("icon-goes-here").appendChild(icon);
 }
+// } else {
+//     var icon = document.createElement("span");
+//     icon.setAttribute("id", "hamburgerMenu");
+//     icon.setAttribute("class", "material-symbols-outlined");
+//     icon.innerHTML = "menu";
+//     document.getElementById("icon-goes-here").appendChild(icon);
+// }
