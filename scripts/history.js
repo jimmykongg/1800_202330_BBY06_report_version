@@ -321,30 +321,4 @@ window.addEventListener("load", () => {
   });
 });
 
-//----------------------------------------------------------
-// "Clear History" button should not be active after user has cleared history
-//
-// MutationObserver detects changes of child elements within target element
-//
-// Source: Example from MDN docs
-// https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver
-//----------------------------------------------------------
-
-// Select the node that will be observed for mutations
-const targetNode = document.getElementById("cardGroup-goes-here");
-
-// Callback function to execute when mutations are observed
-const callback = (mutationList, observer) => {
-  for (const mutation of mutationList) {
-    if (mutation.type === "childList" && targetNode.innerHTML == "") {
-      document.getElementById("clear-history").setAttribute("disabled", "");
-    }
-  }
-};
-
-// Create an observer instance linked to the callback function
-const observer = new MutationObserver(callback);
-// Start observing the target node for configured mutations
-observer.observe(targetNode, {childList: true});
-
 
