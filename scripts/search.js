@@ -116,6 +116,7 @@ function getGeolocation() {
 
 function createLocations() {
     const container = document.querySelector('.searchList');
+    db.collection("bins").orderBy("bin_id");
     db.collection("bins").onSnapshot((binDoc) => {
         binDoc.forEach((bin) => {
 
