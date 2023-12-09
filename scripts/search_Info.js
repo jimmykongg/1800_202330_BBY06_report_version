@@ -51,7 +51,7 @@ function createHeader() {
             icon.setAttribute("class", "fa-solid fa-arrow-left fa-2xl");
             header.appendChild(icon);
 
-            header.querySelector("#backButton").addEventListener("click", function() {
+            header.querySelector("#backButton").addEventListener("click", function () {
                 window.history.back();
             });
 

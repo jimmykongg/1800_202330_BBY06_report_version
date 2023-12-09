@@ -44,7 +44,7 @@ function readFact(data) {
         })
 }
 
-document.querySelector(".fact-of-the-day-container").addEventListener("click", function() {
+document.querySelector(".fact-of-the-day-container").addEventListener("click", function () {
     window.location.href = './facts.html';
 })
 

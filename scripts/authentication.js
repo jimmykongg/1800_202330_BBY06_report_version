@@ -12,26 +12,26 @@ var uiConfig = {
     },
     */
     signInSuccessWithAuthResult: function (authResult, redirectUrl) {
-      var user = authResult.user;                          
-      if (authResult.additionalUserInfo.isNewUser) {         
-          db.collection("users").doc(user.uid).set({         
-                 name: user.displayName,                    
-                 email: user.email,                         
-                 country: "Canada",                      
-                 recentLocation: "No Recent Record",                         
-                 recyclePoint: 0
-          }).then(function () {
-                 console.log("New user added to firestore");
-                 window.location.assign("main.html");       //re-direct to main.html after signup
-          }).catch(function (error) {
-                 console.log("Error adding new user: " + error);
-          });
+      var user = authResult.user;
+      if (authResult.additionalUserInfo.isNewUser) {
+        db.collection("users").doc(user.uid).set({
+          name: user.displayName,
+          email: user.email,
+          country: "Canada",
+          recentLocation: "No Recent Record",
+          recyclePoint: 0
+        }).then(function () {
+          console.log("New user added to firestore");
+          window.location.assign("main.html");       //re-direct to main.html after signup
+        }).catch(function (error) {
+          console.log("Error adding new user: " + error);
+        });
       } else {
-          return true;
+        return true;
       }
-          return false;
-      },
-    uiShown: function() {
+      return false;
+    },
+    uiShown: function () {
       // The widget is rendered.
       // Hide the loader.
       document.getElementById('loader').style.display = 'none';
