@@ -1,5 +1,5 @@
 # COMP 1800 Project - LocalEco
-![Alt text](logo.png)
+![GitHub Logo](https://github.com/leozheng0901/1800_202330_BBY06/blob/main/images/icons/logo.png)
 
 ## 1. Project Description
 LocalEco is a lightweight map web application that guides users to the nearest recycling spots around them. It also features a section that provides facts on recycling, and a reward system that motivates users to recycle regularly.
@@ -21,20 +21,23 @@ List technologies (with version numbers), API's, icons, fonts, images, media or 
 ## 4. Complete setup/installion/usage
 
 ### Set up / Installion
-Here are the steps to get a copy of our source code
+> [!TIP]
+> Here are the steps to get a copy of our source code
 * Fork your own copy of our project
 * Create a local directory on your machine and get to that directory by using `cd <local directory>`
 * Type `git clone <Github link of your forked copy>` to the command line
 
 ### Usage
-Here are the steps when you want to use our app...
+> [!TIP]
+> Here are the steps when you want to use our app
 * Login our page with your own email and password
 * Click on search button to use our map
 * Follow the map and go to the recycling bin with a red pin on the map
 * Click on "Start Recycling" button when you have reached there
 
 ## 5. Known Bugs and Limitations
-Here are some known bugs and limitations:
+> [!CAUTION]
+> Here are some known bugs and limitations:
 - Users might see duplicate history records of the same location now in their history page and we'll fix this soon!
 - Users might find search page takes a few seconds to load. Please be patient at this moment and we'll fix this soon!
 - Users might redeem level 1 recycling rewards only at this moment, we'll include more levels of rewards soon!

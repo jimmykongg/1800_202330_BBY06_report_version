@@ -3,5 +3,6 @@
 node_modules/
 .vscode/
 recyclable_items.html
-firebaseAPI_BBY06.js
-firebaseAPI_template.js
+./scripts/firebaseAPI_BBY06.js
+./scripts/firebaseAPI_template.js
+./scripts/script.js
