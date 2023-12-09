@@ -133,6 +133,7 @@ Firebase hosting files:
 ├── firebase.json
 ├── firestore.indexes.json
 ├── firestore.rules
+├── storage.rules
 
 ```
 
