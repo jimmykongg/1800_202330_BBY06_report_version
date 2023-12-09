@@ -1,4 +1,6 @@
-// Checks how far you are in each page which will determine if your hamburger menu will be replaced by a undo button instead
+// Developed by Leo
+
+// Checks how far you are in each page which determines if your hamburger menu will be replaced by a undo button instead
 document.getElementById("icon-goes-here").innerHTML = "";
 if (localStorage.getItem("stack") > 0) {
     var icon = document.createElement("i");
@@ -9,6 +11,11 @@ if (localStorage.getItem("stack") > 0) {
         window.history.back();
     })
 }
+// ------------------ 
+// Hamburger Menu is commented out 
+// for now due to lack of time to give it functionality. 
+// ------------------
+
 // } else {
 //     var icon = document.createElement("span");
 //     icon.setAttribute("id", "hamburgerMenu");

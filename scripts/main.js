@@ -1,3 +1,10 @@
+// Developed by Leo
+
+// ----------------------
+// A fetch function that gets a new fact from "facts" collection depending on if it is a new day.
+// If there is a new fact needed it will put it into local storage "dailyFact".
+// ----------------------
+
 function getNameFromAuth() {
     firebase.auth().onAuthStateChanged(user => {
         // Check if a user is signed in:

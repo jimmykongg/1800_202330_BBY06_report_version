@@ -1,3 +1,6 @@
+// Developed by Leo
+/* This function will dynamically read the information in the "facts" collection 
+    and create a div for each fact and append all of them into the placeholder in facts.html*/
 function createFacts() {
     const outerDiv = document.querySelector(".facts-body");
     return new Promise((resolve, reject) => {

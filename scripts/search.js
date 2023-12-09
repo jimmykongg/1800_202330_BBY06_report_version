@@ -1,3 +1,19 @@
+// Developed by Leo
+
+//---------------------------------------------------
+// (1) createLocations will read all the recycling locations stored in the database and append it onto the page
+//  with all their information ie. Location, types of recyclables, distance from user, more info button, and appends
+//  it onto the page.
+//---------------------------------------------------
+// (2) sortDivs will sort through the createLocations and organize them from closest to the user to
+//  farthest from the user.
+//---------------------------------------------------
+// (3) customSort() will sort the divs based on the values the users have inputted.
+//---------------------------------------------------
+// (4) presetSort() will sort the divs based on the selected preset value.
+//---------------------------------------------------
+
+
 //---------------------------------------------------
 // This function loads the parts of your skeleton 
 // (navbar, footer, and other things) into html doc. 

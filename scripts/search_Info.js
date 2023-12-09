@@ -1,7 +1,18 @@
+// Developed by Leo
+
 //---------------------------------------------------
-// This function loads the parts of your skeleton 
-// (navbar, footer, and other things) into html doc. 
+// (1) readReward function that parses the amount of points you will receive if you go to the place to recycle.
+//  The amount changes randomly between the a range of 100 - 200 each day.
 //---------------------------------------------------
+// (2) createHeader function that parese the location information from the firestore and displays it
+//  to the top of the page.
+//---------------------------------------------------
+// (3) createRecyclables function that reads what type of recyclables the location accepts ie. Plastics, Metals, etc. and
+//  appends it into the page.
+//---------------------------------------------------
+// (4) createDescription function that reads the database for information regarding the recyclables and appends it into the page.
+//---------------------------------------------------
+
 function loadSkeleton() {
     firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
